@@ -35,22 +35,22 @@ import {
 } from "react-icons/si";
 
 const providers = [
-  { name: "Slack", cmd: "pantalk-slack", icon: SiSlack, color: "#E01E5A" },
+  { name: "Slack", cmd: "slack", icon: SiSlack, color: "#E01E5A" },
   {
     name: "Discord",
-    cmd: "pantalk-discord",
+    cmd: "discord",
     icon: SiDiscord,
     color: "#5865F2",
   },
   {
     name: "Mattermost",
-    cmd: "pantalk-mattermost",
+    cmd: "mattermost",
     icon: SiMattermost,
     color: "#0058CC",
   },
   {
     name: "Telegram",
-    cmd: "pantalk-telegram",
+    cmd: "telegram",
     icon: SiTelegram,
     color: "#26A5E4",
   },
@@ -109,7 +109,7 @@ const useCases = [
       "Someone messages your bot on Slack. Your LLM reads it, thinks, replies. All from the command line.",
     icon: Bot,
     example:
-      "pantalk-slack notifications --bot mybot --unseen | my-llm respond",
+      "slack notifications --bot mybot --unseen | my-llm respond",
   },
   {
     title: "Chat-triggered automation",
@@ -117,7 +117,7 @@ const useCases = [
       "People ask for deploys, status checks, or runbook actions in a channel. Your scripts pick it up and act.",
     icon: Workflow,
     example:
-      "pantalk-slack stream --bot ops --channel requests | handle-request",
+      "slack stream --bot ops --channel requests | handle-request",
   },
   {
     title: "One bot, every platform",
@@ -125,7 +125,7 @@ const useCases = [
       "Same agent handles Slack, Discord, and Telegram. No separate integrations. Same interface.",
     icon: Server,
     example:
-      "pantalk-slack stream --bot support & pantalk-discord stream --bot support",
+      "slack stream --bot support & discord stream --bot support",
   },
 ];
 
@@ -227,7 +227,7 @@ export default function Index() {
                   <div className="flex flex-wrap">
                     <span className="text-accent select-none">$</span>
                     <span className="text-content ml-2">
-                      pantalk-slack notifications --bot mybot --unseen
+                      slack notifications --bot mybot --unseen
                     </span>
                   </div>
 
@@ -239,7 +239,7 @@ export default function Index() {
                   <div className="flex flex-wrap">
                     <span className="text-accent select-none">$</span>
                     <span className="text-content ml-2">
-                      pantalk-slack stream --bot mybot | my-agent respond
+                      slack stream --bot mybot | my-agent respond
                     </span>
                   </div>
 
@@ -251,7 +251,7 @@ export default function Index() {
                   <div className="flex flex-wrap">
                     <span className="text-accent select-none">$</span>
                     <span className="text-content ml-2">
-                      pantalk-slack send --bot mybot --channel C0123 --text
+                      slack send --bot mybot --channel C0123 --text
                       &quot;done ✓&quot;
                     </span>
                   </div>
@@ -264,7 +264,7 @@ export default function Index() {
                   <div className="flex flex-wrap">
                     <span className="text-accent select-none">$</span>
                     <span className="text-content ml-2">
-                      pantalk-discord stream --bot ops | handle-requests
+                      discord stream --bot ops | handle-requests
                     </span>
                   </div>
                 </div>
@@ -420,7 +420,7 @@ export default function Index() {
                   <div className="flex flex-wrap">
                     <span className="text-accent select-none">$</span>
                     <span className="text-content ml-2">
-                      pantalk-slack stream --bot coder --notify | claude
+                      slack stream --bot coder --notify | claude
                     </span>
                   </div>
                   <div className="mt-2">
@@ -431,7 +431,7 @@ export default function Index() {
                   <div className="flex flex-wrap">
                     <span className="text-accent select-none">$</span>
                     <span className="text-content ml-2">
-                      pantalk-discord stream --bot helper --notify | opencode
+                      discord stream --bot helper --notify | opencode
                     </span>
                   </div>
                 </div>
@@ -636,7 +636,7 @@ export default function Index() {
                   step: "3",
                   title: "Read, respond, stream",
                   desc: "Messages arrive. Your agent or script handles them. Reply from the CLI.",
-                  code: "pantalk-slack stream --bot mybot --notify | my-agent respond",
+                  code: "slack stream --bot mybot --notify | my-agent respond",
                 },
               ].map((item) => (
                 <div
@@ -693,22 +693,22 @@ export default function Index() {
               {
                 platform: "Slack client",
                 command:
-                  "go install github.com/pantalk/pantalk/cmd/pantalk-slack@latest",
+                  "go install github.com/pantalk/pantalk/cmd/slack@latest",
               },
               {
                 platform: "Discord client",
                 command:
-                  "go install github.com/pantalk/pantalk/cmd/pantalk-discord@latest",
+                  "go install github.com/pantalk/pantalk/cmd/discord@latest",
               },
               {
                 platform: "Mattermost client",
                 command:
-                  "go install github.com/pantalk/pantalk/cmd/pantalk-mattermost@latest",
+                  "go install github.com/pantalk/pantalk/cmd/mattermost@latest",
               },
               {
                 platform: "Telegram client",
                 command:
-                  "go install github.com/pantalk/pantalk/cmd/pantalk-telegram@latest",
+                  "go install github.com/pantalk/pantalk/cmd/telegram@latest",
               },
             ].map((item) => (
               <div
