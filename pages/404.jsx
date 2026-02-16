@@ -1,7 +1,7 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import Logo from '@/components/Logo'
-import Meta from '@/components/Meta'
+import Logo from "@/components/Logo";
+import Meta from "@/components/Meta";
 
 export default function NotFoundPage() {
   return (
@@ -40,7 +40,7 @@ export default function NotFoundPage() {
               Go Home
             </Link>
             <a
-              href="https://console.cbk.ai"
+              href="https://pantalk.dev"
               className="px-6 py-3 bg-background border border-stroke text-content rounded-xl hover:bg-background-tertiary transition duration-150"
             >
               Sign In
@@ -53,10 +53,10 @@ export default function NotFoundPage() {
       <div className="border-t border-stroke/50">
         <div className="container py-6">
           <p className="text-sm text-content-secondary text-center">
-            © {new Date().getFullYear()} ChatBotKit, Inc. All rights reserved.
+            © {new Date().getFullYear()} Pantalk. All rights reserved.
           </p>
         </div>
       </div>
     </main>
-  )
+  );
 }

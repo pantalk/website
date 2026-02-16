@@ -1,5 +1,5 @@
 {
-  "scope": "chatbotkit",
+  "scope": "pantalk",
   "framework": "nextjs",
   "ignoreCommand": "true",
   "installCommand": "true",

@@ -4,19 +4,20 @@
 
 @layer base {
   :root {
-    --background: 210 20% 4%;
-    --background-secondary: 210 18% 7%;
-    --background-tertiary: 210 16% 10%;
-    --background-quaternary: 210 14% 13%;
+    --background: 0 0% 9.4%;
+    /* --background: 0 0% 13%; */
+    --background-secondary: 0 0% 13%;
+    --background-tertiary: 0 0% 17%;
+    --background-quaternary: 0 0% 21%;
 
-    --stroke: 210 12% 18%;
-    --stroke-secondary: 210 10% 14%;
+    --stroke: 0 0% 18%;
+    --stroke-secondary: 0 0% 16%;
 
-    --accent: 174 72% 50%;
-    --accent-secondary: 174 72% 60%;
+    --accent: 0 0% 100%;
+    --accent-secondary: 25 88% 60%;
 
-    --content: 0 0% 100%;
-    --content-secondary: 210 10% 55%;
+    --content: 0 0% 90%;
+    --content-secondary: 0 0% 50%;
   }
 
   .light {
@@ -37,36 +38,25 @@
 }
 
 .container {
-  @apply max-w-5xl mx-auto px-4;
+  @apply max-w-6xl mx-auto px-4;
 }
 
 .dark-nav {
-  background-image: radial-gradient(rgba(0, 0, 0, 0) 1px, hsl(210 20% 4%) 1px);
+  background-image: radial-gradient(rgba(0, 0, 0, 0) 1px, hsl(0 0% 9.4%) 1px);
   background-size: 4px 4px;
   backdrop-filter: blur(50px);
 }
 
 .grid-pattern {
   background-size: 60px 60px;
-  background-image: 
+  background-image:
     linear-gradient(to right, hsl(210 12% 18% / 0.3) 1px, transparent 1px),
     linear-gradient(to bottom, hsl(210 12% 18% / 0.3) 1px, transparent 1px);
-}
-
-.glow {
-  box-shadow: 
-    0 0 20px hsl(174 72% 50% / 0.3),
-    0 0 60px hsl(174 72% 50% / 0.1);
-}
-
-.text-glow {
-  text-shadow: 0 0 30px hsl(174 72% 50% / 0.5);
 }
 
 .hero-gradient {
   background: radial-gradient(
     ellipse 80% 50% at 50% -20%,
-    hsl(174 72% 50% / 0.15),
-    transparent
+    hsl(174 72% 50% / 0.08)
   );
 }
