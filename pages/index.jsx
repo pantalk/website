@@ -288,9 +288,6 @@ export default function Index() {
               >
                 <p.icon className="size-4" style={{ color: p.color }} />
                 <span className="text-content font-medium">{p.name}</span>
-                <span className="text-content-secondary hidden sm:inline">
-                  → {p.cmd}
-                </span>
               </div>
             ))}
           </div>
