@@ -37,7 +37,6 @@
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
-    "@chatbotkit-dev/eslint-config": "workspace:*",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^22.16.0",
     "@types/react": "^18.2.45",
