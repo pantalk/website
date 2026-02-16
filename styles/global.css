@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 4%;
+    --background-secondary: 210 18% 7%;
+    --background-tertiary: 210 16% 10%;
+    --background-quaternary: 210 14% 13%;
+
+    --stroke: 210 12% 18%;
+    --stroke-secondary: 210 10% 14%;
+
+    --accent: 174 72% 50%;
+    --accent-secondary: 174 72% 60%;
+
+    --content: 0 0% 100%;
+    --content-secondary: 210 10% 55%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --background-secondary: 210 20% 97%;
+    --background-tertiary: 210 18% 94%;
+    --background-quaternary: 210 16% 90%;
+
+    --stroke: 210 12% 85%;
+    --stroke-secondary: 210 10% 88%;
+
+    --accent: 174 72% 40%;
+    --accent-secondary: 174 72% 50%;
+
+    --content: 210 20% 10%;
+    --content-secondary: 210 10% 40%;
+  }
+}
+
+.container {
+  @apply max-w-5xl mx-auto px-4;
+}
+
+.dark-nav {
+  background-image: radial-gradient(rgba(0, 0, 0, 0) 1px, hsl(210 20% 4%) 1px);
+  background-size: 4px 4px;
+  backdrop-filter: blur(50px);
+}
+
+.grid-pattern {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, hsl(210 12% 18% / 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(210 12% 18% / 0.3) 1px, transparent 1px);
+}
+
+.glow {
+  box-shadow: 
+    0 0 20px hsl(174 72% 50% / 0.3),
+    0 0 60px hsl(174 72% 50% / 0.1);
+}
+
+.text-glow {
+  text-shadow: 0 0 30px hsl(174 72% 50% / 0.5);
+}
+
+.hero-gradient {
+  background: radial-gradient(
+    ellipse 80% 50% at 50% -20%,
+    hsl(174 72% 50% / 0.15),
+    transparent
+  );
+}
