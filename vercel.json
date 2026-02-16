@@ -1,7 +1,6 @@
 {
   "scope": "pantalk",
   "framework": "nextjs",
-  "installCommand": "true",
   "buildCommand": "pnpm build",
   "devCommand": "pnpm dev"
 }
