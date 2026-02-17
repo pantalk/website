@@ -1,7 +1,7 @@
-import Head from "next/head";
+import Head from 'next/head'
 
-import { siteUrl } from "@/lib/env";
-import { url } from "@/lib/url";
+import { siteUrl } from '@/lib/env'
+import { url } from '@/lib/url'
 
 /**
  * Generates JSON-LD structured data for SEO.
@@ -14,47 +14,49 @@ import { url } from "@/lib/url";
  * @returns {object} JSON-LD structured data object
  */
 function generateStructuredData({ title, description, thisUrl, image }) {
-  const hostname = thisUrl ? new URL(thisUrl).hostname : "pantalk.dev";
+  const hostname = thisUrl
+    ? new URL(thisUrl).hostname
+    : 'pantalk.chatbotkit.com'
 
   return {
-    "@context": "https://schema.org",
-    "@graph": [
+    '@context': 'https://schema.org',
+    '@graph': [
       {
-        "@type": "Organization",
-        "@id": "https://pantalk.dev/#organization",
-        name: "Pantalk",
-        url: "https://pantalk.dev",
+        '@type': 'Organization',
+        '@id': 'https://cbk.ai/#organization',
+        name: 'CBK AI (ChatBotKit)',
+        url: 'https://cbk.ai',
         logo: {
-          "@type": "ImageObject",
-          url: "https://pantalk.dev/logo.svg",
+          '@type': 'ImageObject',
+          url: 'https://cbk.ai/logo.svg',
         },
         sameAs: [
-          "https://twitter.com/pantaboratory",
-          "https://github.com/pantalk",
+          'https://twitter.com/chatbotkit',
+          'https://github.com/chatbotkit',
         ],
       },
       {
-        "@type": "WebSite",
-        "@id": `https://${hostname}/#website`,
+        '@type': 'WebSite',
+        '@id': `https://${hostname}/#website`,
         url: `https://${hostname}`,
-        name: "Pantalk",
+        name: 'Pantalk',
         publisher: {
-          "@id": "https://pantalk.dev/#organization",
+          '@id': 'https://cbk.ai/#organization',
         },
       },
       {
-        "@type": "WebPage",
-        "@id": thisUrl,
+        '@type': 'WebPage',
+        '@id': thisUrl,
         url: thisUrl,
         name: title,
         description: description,
         isPartOf: {
-          "@id": `https://${hostname}/#website`,
+          '@id': `https://${hostname}/#website`,
         },
         image: image,
       },
     ],
-  };
+  }
 }
 
 export default function Meta({
@@ -68,28 +70,28 @@ export default function Meta({
   appManifest,
 
   baseUrl = siteUrl,
-  thisUrl = "",
+  thisUrl = '',
 }) {
-  thisUrl = url(thisUrl || "/", baseUrl, { noQuery: true, noFragment: true });
+  thisUrl = url(thisUrl || '/', baseUrl, { noQuery: true, noFragment: true })
 
   if (Array.isArray(keywords)) {
-    keywords = keywords.join(",");
+    keywords = keywords.join(',')
   }
 
-  icon = url(icon || `favicon.ico`, baseUrl);
-  image = url(image || `banner.png`, baseUrl);
+  icon = url(icon || `favicon.ico`, baseUrl)
+  image = url(image || `banner.png`, baseUrl)
 
   const structuredData = generateStructuredData({
     title,
     description,
     thisUrl,
     image,
-  });
+  })
 
   return (
     <Head>
       {appManifest ? (
-        <link rel="manifest" href={appManifest || "/app.webmanifest"} />
+        <link rel="manifest" href={appManifest || '/app.webmanifest'} />
       ) : null}
       <link rel="icon" href={icon} />
       <link rel="canonical" href={thisUrl} />
@@ -111,8 +113,8 @@ export default function Meta({
         <meta property="og:description" content={description} />
       ) : null}
       <meta property="og:image" content={image} />
-      <meta name="twitter:site" content="@pantaboratory" />
-      <meta name="twitter:creator" content="@pantaboratory" />
+      <meta name="twitter:site" content="@chatbotkit" />
+      <meta name="twitter:creator" content="@chatbotkit" />
       {title ? <meta name="twitter:title" content={title} /> : null}
       {description ? (
         <meta name="twitter:description" content={description} />
@@ -132,5 +134,5 @@ export default function Meta({
         media="(prefers-color-scheme: light)"
       />
     </Head>
-  );
+  )
 }

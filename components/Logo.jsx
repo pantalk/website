@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
 export default function Logo({ className }) {
   return (
@@ -10,14 +10,14 @@ export default function Logo({ className }) {
       viewBox="0 0 40 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("size-8", className)}
+      className={cn('size-8', className)}
     >
       <rect
         x="2"
         y="2"
         width="36"
         height="36"
-        rx="0"
+        rx="8"
         fill="currentColor"
         fillOpacity="0.1"
         stroke="currentColor"
@@ -36,5 +36,5 @@ export default function Logo({ className }) {
       <circle cx="20" cy="15.5" r="1.25" fill="currentColor" />
       <circle cx="25.5" cy="15.5" r="1.25" fill="currentColor" />
     </svg>
-  );
+  )
 }

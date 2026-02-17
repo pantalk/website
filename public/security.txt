@@ -1,3 +1,3 @@
-Contact: security@pantalk.dev
+Contact: security@chatbotkit.com
 Preferred-Languages: en
-Canonical: https://pantalk.dev/.well-known/security.txt
+Canonical: https://pantalk.chatbotkit.com/.well-known/security.txt

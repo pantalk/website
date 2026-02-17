@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-import Link from "next/link";
+import Link from 'next/link'
 
-import Logo from "./Logo";
+import Logo from './Logo'
 
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import {
+  Bars3Icon,
+  XMarkIcon,
+} from '@heroicons/react/24/solid'
 
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { AnimatePresence, motion } from 'framer-motion'
+import { ArrowRight, Download } from 'lucide-react'
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navLinks = [
-    { href: "#features", label: "Features" },
-    { href: "#quick-start", label: "Quick Start" },
-    { href: "#installation", label: "Install" },
-    { href: "https://github.com/pantalk/pantalk", label: "GitHub" },
-  ];
+    { href: '#features', label: 'Features' },
+    { href: '#quick-start', label: 'Quick Start' },
+    { href: '#installation', label: 'Install' },
+    { href: 'https://github.com/chatbotkit/pantalk', label: 'GitHub' },
+  ]
 
   return (
     <nav className="dark-nav fixed top-0 left-0 w-full h-16 z-50 border-b border-stroke/50">
@@ -33,7 +36,7 @@ export default function Navbar() {
             <li key={link.label}>
               <Link
                 href={link.href}
-                className="text-content-secondary hover:text-content transition-colors text-xs flex items-center gap-1 font-mono uppercase tracking-widest"
+                className="text-content-secondary hover:text-content transition-colors text-sm flex items-center gap-1"
               >
                 {link.label}
               </Link>
@@ -44,14 +47,14 @@ export default function Navbar() {
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center gap-2">
           <Link
-            href="https://github.com/pantalk/pantalk"
-            className="h-9 px-4 text-sm text-content-secondary hover:text-content flex items-center gap-1 transition"
+            href="https://github.com/chatbotkit/pantalk"
+            className="h-9 px-4 text-sm text-content-secondary hover:text-content rounded-lg flex items-center gap-1 transition"
           >
             View Repo
           </Link>
           <Link
             href="#installation"
-            className="h-9 px-4 text-sm bg-accent hover:bg-accent-secondary text-black font-medium flex items-center gap-2 transition"
+            className="h-9 px-4 text-sm bg-accent hover:bg-accent-secondary text-black font-medium rounded-lg flex items-center gap-2 transition"
           >
             Install
             <Download className="size-4" />
@@ -78,7 +81,7 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ type: "tween", stiffness: 100, damping: 10 }}
+              transition={{ type: 'tween', stiffness: 100, damping: 10 }}
               className="absolute top-16 left-0 w-full bg-background border-b border-stroke md:hidden"
             >
               <ul className="container py-4 divide-y divide-stroke">
@@ -96,14 +99,14 @@ export default function Navbar() {
                 ))}
                 <li className="pt-4 flex flex-row gap-2">
                   <Link
-                    href="https://github.com/pantalk/pantalk"
-                    className="h-10 w-full text-sm text-content flex items-center gap-1 justify-center border border-stroke hover:bg-background-tertiary"
+                    href="https://github.com/chatbotkit/pantalk"
+                    className="h-10 w-full text-sm text-content rounded-lg flex items-center gap-1 justify-center border border-stroke hover:bg-background-tertiary"
                   >
                     View Repo
                   </Link>
                   <Link
                     href="#installation"
-                    className="h-10 w-full text-sm bg-accent hover:bg-accent-secondary text-black font-medium flex items-center gap-2 justify-center transition"
+                    className="h-10 w-full text-sm bg-accent hover:bg-accent-secondary text-black font-medium rounded-lg flex items-center gap-2 justify-center transition"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Install
@@ -116,5 +119,5 @@ export default function Navbar() {
         </AnimatePresence>
       </div>
     </nav>
-  );
+  )
 }

@@ -1,8 +1,8 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://pantalk.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pantalk.chatbotkit.com'
 
-const additionalPaths = [];
+const additionalPaths = []
 
-const additionalSitemaps = [];
+const additionalSitemaps = []
 
 module.exports = {
   siteUrl: siteUrl,
@@ -22,13 +22,13 @@ module.exports = {
     return additionalPaths.map((loc) => {
       return {
         loc: loc,
-      };
-    });
+      }
+    })
   },
 
   robotsTxtOptions: {
     additionalSitemaps: additionalSitemaps.map((sitemap) => {
-      return new URL(sitemap, siteUrl).toString();
+      return new URL(sitemap, siteUrl).toString()
     }),
   },
-};
+}
