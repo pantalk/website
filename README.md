@@ -1,4 +1,4 @@
-# CBKai Pantalk
+# Pantalk
 
 Landing page for Pantalk — the open source Unix-style client-server communication tool for chat services.
 
