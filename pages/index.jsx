@@ -561,7 +561,7 @@ Index.getLayout = function (children) {
           'go',
           'golang',
         ]}
-        thisUrl="https://pantalk.chatbotkit.com"
+        thisUrl="https://pantalk.dev"
       />
       <Navbar />
       <main className="pt-14">{children}</main>

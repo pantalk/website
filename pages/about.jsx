@@ -286,7 +286,7 @@ About.getLayout = function (children) {
           'unix socket',
           'go',
         ]}
-        thisUrl="https://pantalk.chatbotkit.com/about"
+        thisUrl="https://pantalk.dev/about"
       />
       <Navbar />
       <main className="pt-14">{children}</main>
