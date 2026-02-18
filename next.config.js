@@ -31,32 +31,6 @@ let nextConfig = {
       return transpileDependencies
     })(),
   ],
-
-  webpack: (config, options) => {
-    const { defaultLoaders } = options
-
-    // transpile svg
-    {
-      config.module.rules.push({
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        use: ['@svgr/webpack'],
-      })
-    }
-
-    // transpile shared code
-    {
-      // @todo export in own library
-      config.module.rules.push({
-        test: /\.(?:tsx?|jsx?)$/,
-        include: [path.resolve(path.join(__dirname, '../../shared'))],
-        exclude: /node_modules/,
-        use: [defaultLoaders.babel],
-      })
-    }
-
-    return config
-  },
 }
 
 module.exports = nextConfig
