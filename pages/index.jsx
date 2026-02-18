@@ -1,73 +1,131 @@
 import Link from 'next/link'
 
-import Footer from '@/components/Footer'
+import Logo from '@/components/Logo'
 import Meta from '@/components/Meta'
 import Navbar from '@/components/Navbar'
-import Logo from '@/components/Logo'
 
-import { 
-  BellRing,
-  Cable,
-  Database,
-  MessageSquareText,
-  Send,
-  Terminal, 
-  Workflow,
-  Bot,
-  Shield, 
-  Server,
-  Download,
+import {
   ArrowRight,
-  Check
+  BellRing,
+  Bot,
+  Cable,
+  Check,
+  Database,
+  Download,
+  History,
+  List,
+  MessageSquareText,
+  Radio,
+  Send,
+  Server,
+  Settings,
+  Shield,
+  Terminal,
+  Workflow,
+  Zap,
 } from 'lucide-react'
 
 const features = [
   {
     icon: Cable,
-    title: 'Single daemon architecture',
-    description: 'pantalkd keeps provider sessions alive in one local process and exposes a clean Unix socket interface.',
+    title: 'Single daemon, all providers',
+    description:
+      'pantalkd keeps chat provider sessions alive in one process and exposes a clean Unix socket — ready for any AI agent to connect.',
   },
   {
     icon: MessageSquareText,
-    title: 'Multi-service connectors',
-    description: 'Run Slack, Discord, Mattermost, and Telegram bots from the same local workflow.',
+    title: 'Multi-platform agent presence',
+    description:
+      'Give your AI agent a presence on Slack, Discord, Mattermost, and Telegram from one unified interface.',
   },
   {
     icon: Terminal,
-    title: 'Unix-native CLI workflows',
-    description: 'Use simple commands that compose with grep, jq, xargs, and your existing shell automation.',
+    title: 'Skill-ready CLI interface',
+    description:
+      'Simple commands that compose with pipes, jq, and shell scripts — perfect for packaging as agent skills and tool-use actions.',
   },
   {
     icon: Database,
-    title: 'Persistent local history',
-    description: 'All events are persisted in SQLite so history and notifications survive process restarts.',
+    title: 'Persistent conversation memory',
+    description:
+      'All messages and events are stored in SQLite so your agent retains full conversation context across restarts.',
   },
   {
     icon: BellRing,
-    title: 'Agent-friendly notifications',
-    description: 'Read unseen, mention, DM, and route-aware events without dropping into service-specific SDKs.',
+    title: 'Agent-native notifications',
+    description:
+      'Surface mentions, DMs, and unseen messages as structured events your agent can reason about and act on.',
   },
   {
     icon: Shield,
     title: 'Strict config validation',
-    description: 'Unknown keys and missing required fields fail fast to keep bot routing predictable and safe.',
+    description:
+      'Unknown keys and missing fields fail fast — keeping agent routing predictable and safe in production.',
+  },
+]
+
+const skills = [
+  {
+    icon: Send,
+    name: 'send-message',
+    title: 'Send Message',
+    description:
+      'Send messages to any channel or thread across Slack, Discord, Mattermost, and Telegram.',
+  },
+  {
+    icon: BellRing,
+    name: 'read-notifications',
+    title: 'Read Notifications',
+    description:
+      'Poll for unseen mentions, DMs, and notification events your agent should act on.',
+  },
+  {
+    icon: History,
+    name: 'read-history',
+    title: 'Read History',
+    description:
+      'Read conversation history from channels and threads to build context before responding.',
+  },
+  {
+    icon: Radio,
+    name: 'stream-events',
+    title: 'Stream Events',
+    description:
+      'Open a real-time event stream for continuous monitoring and instant agent reactions.',
+  },
+  {
+    icon: List,
+    name: 'list-bots',
+    title: 'List Bots',
+    description:
+      'Discover available bots, their platforms, and identifiers for dynamic routing.',
+  },
+  {
+    icon: Settings,
+    name: 'manage-config',
+    title: 'Manage Config',
+    description:
+      'Add services, configure bots, validate settings, and hot-reload the daemon.',
   },
 ]
 
 const useCases = [
   {
-    title: 'Agent inbox automation',
-    description: 'Pipe Pantalk notifications into AI agents to triage inbound messages and trigger workflows.',
+    title: 'Agentic inbox triage',
+    description:
+      'Let your AI agent monitor multiple chat platforms, prioritize incoming messages, and respond or escalate autonomously.',
     icon: Bot,
   },
   {
-    title: 'Ops incident response',
-    description: 'Stream channels and threads to local tooling for routing incidents and posting automated updates.',
+    title: 'Autonomous incident response',
+    description:
+      'Stream alerts and threads into your agent for automated triage, runbook execution, and status updates across channels.',
     icon: Workflow,
   },
   {
-    title: 'Service bridge for teams',
-    description: 'Standardize how bots send, receive, and track conversations across multiple chat providers.',
+    title: 'Multi-platform agent deployment',
+    description:
+      'Deploy one AI agent across Slack, Discord, Mattermost, and Telegram without writing provider-specific code.',
     icon: Server,
   },
 ]
@@ -82,21 +140,27 @@ export default function Index() {
         <div className="container relative z-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-stroke bg-background-secondary/50 backdrop-blur-sm mb-6">
-              <span className="text-xs text-content-secondary">Open source • Go • Unix socket protocol</span>
+              <span className="text-xs text-content-secondary">
+                Open source • Go • Built for AI agents
+              </span>
             </div>
-            
+
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
               <span className="text-content">Pantalk</span>
               <br />
-              <span className="text-accent text-glow">chat services</span>
+              <span className="text-accent text-glow">chat for AI agents</span>
               <br />
-              <span className="text-content-secondary">through one local daemon</span>
+              <span className="text-content-secondary">
+                one daemon, every platform
+              </span>
             </h1>
-            
+
             <p className="text-lg md:text-xl text-content-secondary max-w-xl mb-8">
-              <span className="text-content font-medium">Pantalk</span> is a Unix-style client-server toolkit that keeps upstream chat sessions persistent and gives bots, scripts, and agents a simple local interface.
+              <span className="text-content font-medium">Pantalk</span> gives AI
+              agents a single local interface to send, receive, and stream
+              messages across Slack, Discord, Mattermost, and Telegram.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Link
                 href="#installation"
@@ -106,7 +170,7 @@ export default function Index() {
                 Install from Source
               </Link>
               <Link
-                href="https://github.com/chatbotkit/pantalk"
+                href="https://github.com/pantalk/pantalk"
                 className="h-12 px-6 text-base text-content-secondary hover:text-content rounded-xl flex items-center gap-2 transition border border-stroke hover:border-stroke-secondary hover:bg-background-secondary"
               >
                 View on GitHub
@@ -122,13 +186,14 @@ export default function Index() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
-              Built for chat automation
+              Built for AI agent workflows
             </h2>
             <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-              One local control plane for multi-platform bot messaging, streaming, and agent-driven workflows.
+              One local control plane that lets your AI agent communicate across
+              every chat platform through a single, composable interface.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature) => (
               <div
@@ -138,8 +203,12 @@ export default function Index() {
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
                   <feature.icon className="size-6 text-accent" />
                 </div>
-                <h3 className="text-lg font-semibold text-content mb-2">{feature.title}</h3>
-                <p className="text-content-secondary text-sm leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg font-semibold text-content mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-content-secondary text-sm leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
@@ -155,57 +224,86 @@ export default function Index() {
                 How it works
               </h2>
               <p className="text-content-secondary text-lg mb-8">
-                Pantalk centralizes provider SDK complexity in one daemon so your tools can communicate through a stable local protocol.
+                Pantalk abstracts away provider SDK complexity so your AI agent
+                talks to one stable local protocol instead of four different
+                APIs.
               </p>
-              
+
               <div className="space-y-6">
                 {[
-                  { step: '01', title: 'Define services and bots', description: 'Configure Slack, Discord, Mattermost, or Telegram bots in a strict YAML file.' },
-                  { step: '02', title: 'Run pantalkd locally', description: 'Start the daemon to keep provider sessions persistent over one Unix socket.' },
-                  { step: '03', title: 'Send, read, and stream', description: 'Use pantalk clients and pantalkctl for history, notifications, and routing.' },
+                  {
+                    step: '01',
+                    title: "Configure your agent's channels",
+                    description:
+                      'Define which Slack, Discord, Mattermost, or Telegram channels your agent should monitor and respond in.',
+                  },
+                  {
+                    step: '02',
+                    title: 'Start the daemon',
+                    description:
+                      'Run pantalkd to keep all provider sessions alive over a single Unix socket.',
+                  },
+                  {
+                    step: '03',
+                    title: 'Connect your agent',
+                    description:
+                      'Your AI agent sends, reads, and streams messages through pantalkctl or the socket protocol.',
+                  },
                 ].map((item) => (
                   <div key={item.step} className="flex gap-4">
                     <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-                      <span className="text-accent font-bold text-sm">{item.step}</span>
+                      <span className="text-accent font-bold text-sm">
+                        {item.step}
+                      </span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-content mb-1">{item.title}</h3>
-                      <p className="text-content-secondary text-sm">{item.description}</p>
+                      <h3 className="text-lg font-semibold text-content mb-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-content-secondary text-sm">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            
+
             <div className="relative">
               <div className="rounded-2xl border border-stroke bg-background-secondary/50 p-6 font-mono text-sm">
                 <div className="flex items-center gap-2 mb-4 pb-4 border-b border-stroke/50">
                   <div className="w-3 h-3 rounded-full bg-red-500/60" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
                   <div className="w-3 h-3 rounded-full bg-green-500/60" />
-                  <span className="text-content-secondary text-xs ml-2">terminal</span>
+                  <span className="text-content-secondary text-xs ml-2">
+                    terminal
+                  </span>
                 </div>
                 <div className="space-y-2">
                   <div>
                     <span className="text-accent">$</span>
-                    <span className="text-content ml-2">cp configs/pantalk.example.yaml configs/pantalk.yaml</span>
+                    <span className="text-content ml-2">
+                      cp configs/pantalk.example.yaml configs/pantalk.yaml
+                    </span>
                   </div>
-                  <div className="text-content-secondary">
-                    ✓ config ready
-                  </div>
+                  <div className="text-content-secondary">✓ config ready</div>
                   <div className="text-content-secondary">
                     ✓ services: slack, discord, mattermost, telegram
                   </div>
                   <div className="mt-4">
                     <span className="text-accent">$</span>
-                    <span className="text-content ml-2">go run ./cmd/pantalkd --config ./configs/pantalk.yaml</span>
+                    <span className="text-content ml-2">
+                      go run ./cmd/pantalkd --config ./configs/pantalk.yaml
+                    </span>
                   </div>
                   <div className="text-content-secondary">
                     ▸ daemon listening on /tmp/pantalk.sock
                   </div>
                   <div className="mt-4">
                     <span className="text-accent">$</span>
-                    <span className="text-content ml-2">go run ./cmd/pantalk-slack stream --bot team-a --notify</span>
+                    <span className="text-content ml-2">
+                      go run ./cmd/pantalk-slack stream --bot team-a --notify
+                    </span>
                   </div>
                   <div className="text-content-secondary">
                     ▸ streaming inbound notifications...
@@ -222,10 +320,12 @@ export default function Index() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
-              Built for your workflow
+              What agents can do with Pantalk
             </h2>
             <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-              Whether you&apos;re running AI agents, handling support queues, or orchestrating team bots, Pantalk fits into your existing CLI stack.
+              From autonomous support agents to incident responders, Pantalk
+              gives your AI the chat infrastructure it needs to operate
+              independently.
             </p>
           </div>
 
@@ -236,8 +336,57 @@ export default function Index() {
                 className="p-8 rounded-2xl border border-stroke/50 bg-background-secondary/30 hover:bg-background-secondary/50 transition-all"
               >
                 <useCase.icon className="size-10 text-accent mb-6" />
-                <h3 className="text-xl font-semibold text-content mb-3">{useCase.title}</h3>
-                <p className="text-content-secondary leading-relaxed">{useCase.description}</p>
+                <h3 className="text-xl font-semibold text-content mb-3">
+                  {useCase.title}
+                </h3>
+                <p className="text-content-secondary leading-relaxed">
+                  {useCase.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-24 border-t border-stroke/50">
+        <div className="container">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 mb-6">
+              <Zap className="size-4 text-accent" />
+              <span className="text-xs text-accent">Agent skills</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
+              Built-in skills for every agent
+            </h2>
+            <p className="text-content-secondary text-lg max-w-2xl mx-auto">
+              Pantalk ships with composable skills your AI agent can use as
+              tools — each one maps to a single CLI command.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {skills.map((skill) => (
+              <div
+                key={skill.name}
+                className="p-5 rounded-xl border border-stroke/50 bg-background-secondary/30 hover:bg-background-secondary/50 hover:border-stroke transition-all group flex gap-4"
+              >
+                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
+                  <skill.icon className="size-5 text-accent" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="text-sm font-semibold text-content">
+                      {skill.title}
+                    </h3>
+                    <span className="text-[10px] font-mono text-content-secondary bg-background-tertiary/50 px-1.5 py-0.5 rounded">
+                      {skill.name}
+                    </span>
+                  </div>
+                  <p className="text-content-secondary text-xs leading-relaxed">
+                    {skill.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -249,22 +398,40 @@ export default function Index() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
-              Get started in seconds
+              Get your agent online in seconds
             </h2>
             <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-              Install the core daemon and CLI clients directly from the Pantalk source repository.
+              Install the daemon and CLI, then point your AI agent at the Unix
+              socket to start communicating.
             </p>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-6">
             {[
-              { platform: 'Daemon', command: 'go install github.com/chatbotkit/pantalk/cmd/pantalkd@latest' },
-              { platform: 'Control CLI', command: 'go install github.com/chatbotkit/pantalk/cmd/pantalkctl@latest' },
-              { platform: 'Service Clients', command: 'go install github.com/chatbotkit/pantalk/cmd/pantalk-slack@latest' },
+              {
+                platform: 'Daemon',
+                command:
+                  'go install github.com/pantalk/pantalk/cmd/pantalkd@latest',
+              },
+              {
+                platform: 'Control CLI',
+                command:
+                  'go install github.com/pantalk/pantalk/cmd/pantalkctl@latest',
+              },
+              {
+                platform: 'Service Clients',
+                command:
+                  'go install github.com/pantalk/pantalk/cmd/pantalk-slack@latest',
+              },
             ].map((item) => (
-              <div key={item.platform} className="rounded-xl border border-stroke bg-background-secondary/50 overflow-hidden">
+              <div
+                key={item.platform}
+                className="rounded-xl border border-stroke bg-background-secondary/50 overflow-hidden"
+              >
                 <div className="px-4 py-2 border-b border-stroke/50 bg-background-tertiary/30">
-                  <span className="text-sm text-content-secondary">{item.platform}</span>
+                  <span className="text-sm text-content-secondary">
+                    {item.platform}
+                  </span>
                 </div>
                 <div className="p-4 font-mono text-sm">
                   <code className="text-accent">{item.command}</code>
@@ -275,10 +442,10 @@ export default function Index() {
 
           <div className="text-center mt-12">
             <p className="text-content-secondary mb-4">
-              Clone the repo to run all service clients and sample configs
+              Clone the repo to run all connectors and see example agent configs
             </p>
             <Link
-              href="https://github.com/chatbotkit/pantalk"
+              href="https://github.com/pantalk/pantalk"
               className="inline-flex items-center gap-2 text-accent hover:text-accent-secondary transition-colors"
             >
               Open repository
@@ -295,21 +462,25 @@ export default function Index() {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 mb-6">
                 <Send className="size-4 text-accent" />
-                <span className="text-xs text-accent">Provider SDK abstraction</span>
+                <span className="text-xs text-accent">
+                  Provider SDK abstraction
+                </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-content mb-6">
-                One protocol, many chat services
+                One protocol for every chat platform
               </h2>
               <p className="text-content-secondary text-lg mb-8">
-                Pantalk keeps chat provider complexity behind a stable local server so your agents and scripts can focus on routing logic.
+                Your agent doesn&apos;t need to know Slack from Discord. Pantalk
+                normalizes everything behind a single local protocol so the
+                agent can focus on reasoning and action.
               </p>
-              
+
               <ul className="space-y-4">
                 {[
-                  'Persistent connectors for Slack, Discord, Mattermost, and Telegram',
-                  'Local SQLite-backed history and notification persistence',
-                  'Route-aware send and stream APIs for bots and agents',
-                  'Composable CLI interface for shell-driven automation',
+                  'Persistent connections to Slack, Discord, Mattermost, and Telegram',
+                  'Full conversation memory via local SQLite storage',
+                  'Structured event stream for agent reasoning and tool-use',
+                  'Composable CLI designed for LLM tool integration',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center">
@@ -320,14 +491,14 @@ export default function Index() {
                 ))}
               </ul>
             </div>
-            
+
             <div className="flex justify-center">
-              <div className="relative">
-                <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full" />
-                <div className="relative w-48 h-48 rounded-3xl border border-stroke bg-background-secondary/50 flex items-center justify-center">
-                  <Logo className="size-24 text-accent" />
+              <Link href="/about" className="relative group">
+                <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full group-hover:bg-accent/30 transition" />
+                <div className="relative w-48 h-48 rounded-3xl border border-stroke bg-background-secondary/50 flex items-center justify-center group-hover:border-accent/50 transition-colors cursor-pointer">
+                  <Logo className="size-24 text-accent animate-flip" />
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -339,21 +510,22 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl font-bold text-content mb-4">
-                Need help?
+                Build with us
               </h2>
               <p className="text-content-secondary">
-                Follow development on GitHub and join the community for support, updates, and integration ideas.
+                Pantalk is open source. Follow development on GitHub, report
+                issues, or contribute connectors and agent integrations.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <Link
-                href="https://discord.gg/2aC9sDArcm"
+                href="https://github.com/pantalk/pantalk"
                 className="h-12 px-6 text-sm bg-background-secondary border border-stroke text-content rounded-xl flex items-center gap-2 hover:bg-background-tertiary transition-all"
               >
-                Join Discord Community
+                View on GitHub
               </Link>
               <Link
-                href="https://github.com/chatbotkit/pantalk/issues"
+                href="https://github.com/pantalk/pantalk/issues"
                 className="h-12 px-6 text-sm text-content-secondary hover:text-content rounded-xl flex items-center gap-2 transition border border-stroke hover:bg-background-secondary"
               >
                 Report an Issue
@@ -370,21 +542,22 @@ Index.getLayout = function (children) {
   return (
     <>
       <Meta
-        title="Pantalk - Open Source Chat Services Daemon"
-        description="Pantalk is an open source Unix-style daemon and CLI toolkit for Slack, Discord, Mattermost, and Telegram bot workflows."
+        title="Pantalk - Chat Infrastructure for AI Agents"
+        description="Pantalk is an open source daemon that gives AI agents a single local interface to communicate across Slack, Discord, Mattermost, and Telegram."
         keywords={[
           'pantalk',
-          'chat services',
-          'chatbot automation',
+          'ai agent',
+          'ai agent chat',
+          'agent infrastructure',
+          'chat automation',
           'daemon',
           'unix socket',
           'slack bot',
           'discord bot',
           'mattermost bot',
           'telegram bot',
-          'sqlite history',
-          'automation',
-          'cli',
+          'agentic workflows',
+          'llm tools',
           'go',
           'golang',
         ]}
@@ -392,7 +565,6 @@ Index.getLayout = function (children) {
       />
       <Navbar />
       <main className="pt-14">{children}</main>
-      <Footer />
     </>
   )
 }

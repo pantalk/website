@@ -4,10 +4,7 @@ import Link from 'next/link'
 
 import Logo from './Logo'
 
-import {
-  Bars3Icon,
-  XMarkIcon,
-} from '@heroicons/react/24/solid'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
@@ -19,7 +16,8 @@ export default function Navbar() {
     { href: '#features', label: 'Features' },
     { href: '#quick-start', label: 'Quick Start' },
     { href: '#installation', label: 'Install' },
-    { href: 'https://github.com/chatbotkit/pantalk', label: 'GitHub' },
+    { href: '/about', label: 'About', accent: true },
+    { href: 'https://github.com/pantalk/pantalk', label: 'GitHub' },
   ]
 
   return (
@@ -36,7 +34,11 @@ export default function Navbar() {
             <li key={link.label}>
               <Link
                 href={link.href}
-                className="text-content-secondary hover:text-content transition-colors text-sm flex items-center gap-1"
+                className={`${
+                  link.accent
+                    ? 'text-accent hover:text-accent-secondary'
+                    : 'text-content-secondary hover:text-content'
+                } transition-colors text-sm flex items-center gap-1`}
               >
                 {link.label}
               </Link>
@@ -47,7 +49,7 @@ export default function Navbar() {
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center gap-2">
           <Link
-            href="https://github.com/chatbotkit/pantalk"
+            href="https://github.com/pantalk/pantalk"
             className="h-9 px-4 text-sm text-content-secondary hover:text-content rounded-lg flex items-center gap-1 transition"
           >
             View Repo
@@ -99,7 +101,7 @@ export default function Navbar() {
                 ))}
                 <li className="pt-4 flex flex-row gap-2">
                   <Link
-                    href="https://github.com/chatbotkit/pantalk"
+                    href="https://github.com/pantalk/pantalk"
                     className="h-10 w-full text-sm text-content rounded-lg flex items-center gap-1 justify-center border border-stroke hover:bg-background-tertiary"
                   >
                     View Repo

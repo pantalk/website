@@ -31,7 +31,7 @@ export default function Footer() {
                 <ArrowRightIcon className="size-4" />
               </Link>
               <Link
-                href="https://github.com/chatbotkit/pantalk"
+                href="https://github.com/pantalk/pantalk"
                 className="px-6 text-sm py-3 bg-background-secondary text-content-secondary hover:text-content border border-stroke rounded-full flex items-center justify-center gap-2 hover:bg-background-tertiary transition-all whitespace-nowrap"
               >
                 <Github className="size-4" />
@@ -56,7 +56,7 @@ export default function Footer() {
                 Open source daemon + CLI toolkit for chat services. Built with Go and designed for Unix-style workflows.
               </p>
               <div className="flex items-center gap-4 mt-6">
-                <Link href="https://github.com/chatbotkit/pantalk" className="text-content-secondary hover:text-accent transition-colors">
+                <Link href="https://github.com/pantalk/pantalk" className="text-content-secondary hover:text-accent transition-colors">
                   <Github className="size-5" />
                 </Link>
                 <Link href="https://x.com/ChatBotKit" className="text-content-secondary hover:text-accent transition-colors">
@@ -75,23 +75,23 @@ export default function Footer() {
                   { name: 'Features', href: '#features' },
                   { name: 'Quick Start', href: '#quick-start' },
                   { name: 'Installation', href: '#installation' },
-                  { name: 'README', href: 'https://github.com/chatbotkit/pantalk#readme' },
+                  { name: 'README', href: 'https://github.com/pantalk/pantalk#readme' },
                 ],
               },
               {
                 title: 'Connectors',
                 links: [
-                  { name: 'Slack', href: 'https://github.com/chatbotkit/pantalk#quick-start' },
-                  { name: 'Discord', href: 'https://github.com/chatbotkit/pantalk#quick-start' },
-                  { name: 'Mattermost', href: 'https://github.com/chatbotkit/pantalk#quick-start' },
-                  { name: 'Telegram', href: 'https://github.com/chatbotkit/pantalk#quick-start' },
+                  { name: 'Slack', href: 'https://github.com/pantalk/pantalk#quick-start' },
+                  { name: 'Discord', href: 'https://github.com/pantalk/pantalk#quick-start' },
+                  { name: 'Mattermost', href: 'https://github.com/pantalk/pantalk#quick-start' },
+                  { name: 'Telegram', href: 'https://github.com/pantalk/pantalk#quick-start' },
                 ],
               },
               {
                 title: 'Resources',
                 links: [
-                  { name: 'GitHub', href: 'https://github.com/chatbotkit/pantalk' },
-                  { name: 'Issues', href: 'https://github.com/chatbotkit/pantalk/issues' },
+                  { name: 'GitHub', href: 'https://github.com/pantalk/pantalk' },
+                  { name: 'Issues', href: 'https://github.com/pantalk/pantalk/issues' },
                   { name: 'Discord', href: 'https://discord.gg/2aC9sDArcm' },
                   { name: 'About', href: 'https://cbk.ai/about' },
                 ],
