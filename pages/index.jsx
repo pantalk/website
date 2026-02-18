@@ -34,7 +34,7 @@ const features = [
     icon: Cable,
     title: 'Single daemon, all providers',
     description:
-      'pantalkd keeps chat provider sessions alive in one process and exposes a clean Unix socket — ready for any AI agent to connect.',
+      'pantalkd keeps chat provider sessions alive in one process and exposes a clean Unix socket - ready for any AI agent to connect.',
   },
   {
     icon: MessageSquareText,
@@ -46,7 +46,7 @@ const features = [
     icon: Terminal,
     title: 'Skill-ready CLI interface',
     description:
-      'Simple commands that compose with pipes, jq, and shell scripts — perfect for packaging as agent skills and tool-use actions.',
+      'Simple commands that compose with pipes, jq, and shell scripts - perfect for packaging as agent skills and tool-use actions.',
   },
   {
     icon: Database,
@@ -64,52 +64,52 @@ const features = [
     icon: Shield,
     title: 'Multi-platform in one config',
     description:
-      'Connect Slack, Discord, Telegram, and Mattermost in a single file — one agent talks everywhere at once.',
+      'Connect Slack, Discord, Telegram, and Mattermost in a single file - one agent talks everywhere at once.',
   },
 ]
 
 const skills = [
   {
     icon: Send,
-    name: 'send-message',
+    name: 'pantalk-send-message',
     title: 'Send Message',
     description:
       'Send messages to any channel or thread across Slack, Discord, Mattermost, and Telegram.',
   },
   {
     icon: BellRing,
-    name: 'read-notifications',
+    name: 'pantalk-read-notifications',
     title: 'Read Notifications',
     description:
       'Poll for unseen mentions, DMs, and notification events your agent should act on.',
   },
   {
     icon: History,
-    name: 'read-history',
+    name: 'pantalk-read-history',
     title: 'Read History',
     description:
       'Read conversation history from channels and threads to build context before responding.',
   },
   {
     icon: Radio,
-    name: 'stream-events',
+    name: 'pantalk-stream-events',
     title: 'Stream Events',
     description:
       'Open a real-time event stream for continuous monitoring and instant agent reactions.',
   },
   {
     icon: List,
-    name: 'list-bots',
+    name: 'pantalk-list-bots',
     title: 'List Bots',
     description:
       'Discover available bots, their platforms, and identifiers for dynamic routing.',
   },
   {
     icon: Settings,
-    name: 'manage-config',
+    name: 'pantalk-manage-config',
     title: 'Manage Config',
     description:
-      'Add services, configure bots, validate settings, and hot-reload the daemon.',
+      'Add bots, configure platforms, validate settings, and hot-reload the daemon.',
   },
 ]
 
@@ -228,7 +228,7 @@ function InstallationSection() {
                     <div className="rounded-xl border border-stroke bg-background-tertiary/30 p-4 font-mono text-sm overflow-x-auto">
                       <code className="text-accent break-all">
                         curl -fsSL
-                        https://raw.githubusercontent.com/pantalk/skills/refs/heads/master/install/SKILL.md
+                        https://raw.githubusercontent.com/pantalk/skills/refs/heads/master/pantalk-install/SKILL.md
                         -o PANTALK_INSTALL.md
                       </code>
                     </div>
@@ -473,11 +473,11 @@ export default function Index() {
                     ✓ config ready (~/.config/pantalk/config.yaml)
                   </div>
                   <div className="text-content-secondary">
-                    ✓ services: slack, discord, mattermost, telegram
+                    ✓ bots: slack, discord, mattermost, telegram
                   </div>
                   <div className="mt-4">
                     <span className="text-accent">$</span>
-                    <span className="text-content ml-2">pantalkd</span>
+                    <span className="text-content ml-2">pantalkd &</span>
                   </div>
                   <div className="text-content-secondary">
                     ▸ daemon listening on pantalk.sock
@@ -595,7 +595,7 @@ export default function Index() {
             </h2>
             <p className="text-content-secondary text-lg max-w-2xl mx-auto">
               Pantalk ships with composable skills your AI agent can use as
-              tools — each one maps to a single CLI command.
+              tools - each one maps to a single CLI command.
             </p>
           </div>
 

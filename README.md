@@ -1,6 +1,6 @@
 # Pantalk
 
-Landing page for Pantalk — the open source Unix-style client-server communication tool for chat services.
+Landing page for Pantalk - the open source Unix-style client-server communication tool for chat services.
 
 Pantalk is a Go-based daemon + CLI toolkit that keeps persistent service sessions in one local process and exposes a clean Unix socket protocol for bots, AI agents, and scripts.
 
