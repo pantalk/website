@@ -7,13 +7,14 @@ Pantalk is a Go-based daemon + CLI toolkit that keeps persistent service session
 ## Development
 
 ```bash
-pnpm dev
+npm install
+npm run dev
 ```
 
 ## Build
 
 ```bash
-pnpm build
+npm run build
 ```
 
 ## About Pantalk

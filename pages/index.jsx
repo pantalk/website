@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import Link from 'next/link'
 
 import Logo from '@/components/Logo'
@@ -15,11 +17,13 @@ import {
   History,
   List,
   MessageSquareText,
+  Plug,
   Radio,
   Send,
   Server,
   Settings,
   Shield,
+  Sparkles,
   Terminal,
   Workflow,
   Zap,
@@ -109,6 +113,39 @@ const skills = [
   },
 ]
 
+const agents = [
+  {
+    name: 'GitHub Copilot',
+    description:
+      'Give Copilot the ability to send updates, triage issues, and notify your team across every chat platform.',
+  },
+  {
+    name: 'Claude',
+    description:
+      'Let Claude monitor conversations, respond to mentions, and manage multi-platform threads autonomously.',
+  },
+  {
+    name: 'Gemini',
+    description:
+      'Connect Gemini to your team channels so it can stream events, summarize discussions, and take action.',
+  },
+  {
+    name: 'Codex',
+    description:
+      'Equip Codex with chat skills to report build results, post code reviews, and answer questions in real time.',
+  },
+  {
+    name: 'OpenClaw',
+    description:
+      'Give OpenClaw agents persistent chat presence with full conversation memory and notification handling.',
+  },
+  {
+    name: 'Any Agent',
+    description:
+      'Pantalk is agent-agnostic. Any AI that can call a CLI command or read from a Unix socket gets instant chat abilities.',
+  },
+]
+
 const useCases = [
   {
     title: 'Agentic inbox triage',
@@ -129,6 +166,154 @@ const useCases = [
     icon: Server,
   },
 ]
+
+function InstallationSection() {
+  const [tab, setTab] = useState('agent')
+
+  return (
+    <section id="installation" className="py-24 border-t border-stroke/50">
+      <div className="container">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
+            Get your agent online in seconds
+          </h2>
+          <p className="text-content-secondary text-lg max-w-2xl mx-auto">
+            Let your AI agent install Pantalk itself, or do it manually.
+          </p>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          {/* Tabs */}
+          <div className="flex gap-2 mb-8 justify-center">
+            <button
+              onClick={() => setTab('agent')}
+              className={`h-10 px-5 text-sm font-medium rounded-xl flex items-center gap-2 transition-all ${
+                tab === 'agent'
+                  ? 'bg-accent text-black'
+                  : 'text-content-secondary border border-stroke hover:text-content hover:bg-background-secondary'
+              }`}
+            >
+              <Bot className="size-4" />
+              For AI Agents
+            </button>
+            <button
+              onClick={() => setTab('human')}
+              className={`h-10 px-5 text-sm font-medium rounded-xl flex items-center gap-2 transition-all ${
+                tab === 'human'
+                  ? 'bg-accent text-black'
+                  : 'text-content-secondary border border-stroke hover:text-content hover:bg-background-secondary'
+              }`}
+            >
+              <Terminal className="size-4" />
+              For Humans
+            </button>
+          </div>
+
+          {/* Agent Tab */}
+          {tab === 'agent' && (
+            <div className="space-y-6">
+              <div className="rounded-2xl border border-stroke bg-background-secondary/50 p-6">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <Download className="size-5 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-content mb-2">
+                      1. Give your agent the install skill
+                    </h3>
+                    <p className="text-content-secondary text-sm mb-4">
+                      Run this command to download the Pantalk install skill.
+                      Then ask your agent to follow the instructions inside.
+                    </p>
+                    <div className="rounded-xl border border-stroke bg-background-tertiary/30 p-4 font-mono text-sm overflow-x-auto">
+                      <code className="text-accent break-all">
+                        curl -fsSL
+                        https://raw.githubusercontent.com/pantalk/skills/refs/heads/master/install/SKILL.md
+                        -o PANTALK_INSTALL.md
+                      </code>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <Sparkles className="size-5 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-content mb-2">
+                      2. Ask your agent to install Pantalk
+                    </h3>
+                    <p className="text-content-secondary text-sm mb-4">
+                      Paste something like this into your agent&apos;s chat:
+                    </p>
+                    <div className="rounded-xl border border-accent/20 bg-accent/5 p-4 text-sm">
+                      <p className="text-content italic">
+                        &ldquo;Read the PANTALK_INSTALL.md file and follow the
+                        instructions to install and configure Pantalk.&rdquo;
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-content-secondary text-sm text-center">
+                Your agent will install the binaries, create the config, start
+                the daemon, and verify everything is working &mdash;
+                autonomously.
+              </p>
+            </div>
+          )}
+
+          {/* Human Tab */}
+          {tab === 'human' && (
+            <div className="space-y-6">
+              {[
+                {
+                  platform: 'Daemon',
+                  command:
+                    'go install github.com/pantalk/pantalk/cmd/pantalkd@latest',
+                },
+                {
+                  platform: 'Unified CLI',
+                  command:
+                    'go install github.com/pantalk/pantalk/cmd/pantalk@latest',
+                },
+              ].map((item) => (
+                <div
+                  key={item.platform}
+                  className="rounded-xl border border-stroke bg-background-secondary/50 overflow-hidden"
+                >
+                  <div className="px-4 py-2 border-b border-stroke/50 bg-background-tertiary/30">
+                    <span className="text-sm text-content-secondary">
+                      {item.platform}
+                    </span>
+                  </div>
+                  <div className="p-4 font-mono text-sm">
+                    <code className="text-accent">{item.command}</code>
+                  </div>
+                </div>
+              ))}
+
+              <div className="text-center mt-6">
+                <p className="text-content-secondary mb-4">
+                  Clone the repo to run all connectors and see example agent
+                  configs
+                </p>
+                <Link
+                  href="https://github.com/pantalk/pantalk"
+                  className="inline-flex items-center gap-2 text-accent hover:text-accent-secondary transition-colors"
+                >
+                  Open repository
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 export default function Index() {
   return (
@@ -247,7 +432,7 @@ export default function Index() {
                     step: '03',
                     title: 'Connect your agent',
                     description:
-                      'Your AI agent sends, reads, and streams messages through pantalkctl or the socket protocol.',
+                      'Your AI agent sends, reads, and streams messages through pantalk or the socket protocol.',
                   },
                 ].map((item) => (
                   <div key={item.step} className="flex gap-4">
@@ -282,27 +467,25 @@ export default function Index() {
                 <div className="space-y-2">
                   <div>
                     <span className="text-accent">$</span>
-                    <span className="text-content ml-2">
-                      cp configs/pantalk.example.yaml configs/pantalk.yaml
-                    </span>
+                    <span className="text-content ml-2">pantalk setup</span>
                   </div>
-                  <div className="text-content-secondary">✓ config ready</div>
+                  <div className="text-content-secondary">
+                    ✓ config ready (~/.config/pantalk/config.yaml)
+                  </div>
                   <div className="text-content-secondary">
                     ✓ services: slack, discord, mattermost, telegram
                   </div>
                   <div className="mt-4">
                     <span className="text-accent">$</span>
-                    <span className="text-content ml-2">
-                      go run ./cmd/pantalkd --config ./configs/pantalk.yaml
-                    </span>
+                    <span className="text-content ml-2">pantalkd</span>
                   </div>
                   <div className="text-content-secondary">
-                    ▸ daemon listening on /tmp/pantalk.sock
+                    ▸ daemon listening on pantalk.sock
                   </div>
                   <div className="mt-4">
                     <span className="text-accent">$</span>
                     <span className="text-content ml-2">
-                      go run ./cmd/pantalk-slack stream --bot team-a --notify
+                      pantalk stream --bot my-bot --notify
                     </span>
                   </div>
                   <div className="text-content-secondary">
@@ -344,6 +527,57 @@ export default function Index() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Agents Section */}
+      <section className="py-24 border-t border-stroke/50">
+        <div className="container">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 mb-6">
+              <Plug className="size-4 text-accent" />
+              <span className="text-xs text-accent">
+                Universal compatibility
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
+              Works with every AI agent
+            </h2>
+            <p className="text-content-secondary text-lg max-w-2xl mx-auto">
+              Copilot, Claude, Gemini, Codex, OpenClaw &mdash; it doesn&apos;t
+              matter. If your agent can run a command, it can talk to every chat
+              platform. It simply works.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {agents.map((agent) => (
+              <div
+                key={agent.name}
+                className="p-6 rounded-2xl border border-stroke/50 bg-background-secondary/30 hover:bg-background-secondary/50 hover:border-accent/30 transition-all group"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                    <Sparkles className="size-5 text-accent" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-content">
+                    {agent.name}
+                  </h3>
+                </div>
+                <p className="text-content-secondary text-sm leading-relaxed">
+                  {agent.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 max-w-2xl mx-auto text-center">
+            <p className="text-content-secondary text-sm">
+              Pantalk exposes chat as composable CLI skills. Any AI agent that
+              supports tool-use, function calling, or shell execution can pick
+              them up instantly &mdash; zero custom integration code required.
+            </p>
           </div>
         </div>
       </section>
@@ -394,66 +628,7 @@ export default function Index() {
       </section>
 
       {/* Installation Section */}
-      <section id="installation" className="py-24 border-t border-stroke/50">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
-              Get your agent online in seconds
-            </h2>
-            <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-              Install the daemon and CLI, then point your AI agent at the Unix
-              socket to start communicating.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto space-y-6">
-            {[
-              {
-                platform: 'Daemon',
-                command:
-                  'go install github.com/pantalk/pantalk/cmd/pantalkd@latest',
-              },
-              {
-                platform: 'Control CLI',
-                command:
-                  'go install github.com/pantalk/pantalk/cmd/pantalkctl@latest',
-              },
-              {
-                platform: 'Service Clients',
-                command:
-                  'go install github.com/pantalk/pantalk/cmd/pantalk-slack@latest',
-              },
-            ].map((item) => (
-              <div
-                key={item.platform}
-                className="rounded-xl border border-stroke bg-background-secondary/50 overflow-hidden"
-              >
-                <div className="px-4 py-2 border-b border-stroke/50 bg-background-tertiary/30">
-                  <span className="text-sm text-content-secondary">
-                    {item.platform}
-                  </span>
-                </div>
-                <div className="p-4 font-mono text-sm">
-                  <code className="text-accent">{item.command}</code>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-content-secondary mb-4">
-              Clone the repo to run all connectors and see example agent configs
-            </p>
-            <Link
-              href="https://github.com/pantalk/pantalk"
-              className="inline-flex items-center gap-2 text-accent hover:text-accent-secondary transition-colors"
-            >
-              Open repository
-              <ArrowRight className="size-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <InstallationSection />
 
       {/* Architecture Section */}
       <section className="py-24 border-t border-stroke/50">
@@ -560,6 +735,11 @@ Index.getLayout = function (children) {
           'llm tools',
           'go',
           'golang',
+          'copilot',
+          'claude',
+          'gemini',
+          'codex',
+          'openclaw',
         ]}
         thisUrl="https://pantalk.dev"
       />
