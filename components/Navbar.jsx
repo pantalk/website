@@ -4,10 +4,8 @@ import Link from 'next/link'
 
 import Logo from './Logo'
 
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
-
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowRight, Download } from 'lucide-react'
+import { ArrowRight, Download, Menu, X } from 'lucide-react'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -70,9 +68,9 @@ export default function Navbar() {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
-            <XMarkIcon className="h-6 w-6 text-content" />
+            <X className="size-6 text-content" />
           ) : (
-            <Bars3Icon className="h-6 w-6 text-content" />
+            <Menu className="size-6 text-content" />
           )}
         </button>
 

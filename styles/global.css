@@ -35,22 +35,6 @@
     --content: 0 0% 100%;
     --content-secondary: 210 10% 55%;
   }
-
-  .light {
-    --background: 0 0% 100%;
-    --background-secondary: 210 20% 97%;
-    --background-tertiary: 210 18% 94%;
-    --background-quaternary: 210 16% 90%;
-
-    --stroke: 210 12% 85%;
-    --stroke-secondary: 210 10% 88%;
-
-    --accent: 174 72% 40%;
-    --accent-secondary: 174 72% 50%;
-
-    --content: 210 20% 10%;
-    --content-secondary: 210 10% 40%;
-  }
 }
 
 .container {
