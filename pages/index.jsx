@@ -58,9 +58,9 @@ const features = [
   },
   {
     icon: Shield,
-    title: 'Strict config validation',
+    title: 'Multi-platform in one config',
     description:
-      'Unknown keys and missing fields fail fast — keeping agent routing predictable and safe in production.',
+      'Connect Slack, Discord, Telegram, and Mattermost in a single file — one agent talks everywhere at once.',
   },
 ]
 
