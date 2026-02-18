@@ -28,10 +28,7 @@ function generateStructuredData({ title, description, thisUrl, image }) {
           '@type': 'ImageObject',
           url: 'https://cbk.ai/logo.svg',
         },
-        sameAs: [
-          'https://twitter.com/chatbotkit',
-          'https://github.com/chatbotkit',
-        ],
+        sameAs: ['https://github.com/pantalk'],
       },
       {
         '@type': 'WebSite',
@@ -111,8 +108,6 @@ export default function Meta({
         <meta property="og:description" content={description} />
       ) : null}
       <meta property="og:image" content={image} />
-      <meta name="twitter:site" content="@chatbotkit" />
-      <meta name="twitter:creator" content="@chatbotkit" />
       {title ? <meta name="twitter:title" content={title} /> : null}
       {description ? (
         <meta name="twitter:description" content={description} />
