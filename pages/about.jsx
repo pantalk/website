@@ -38,7 +38,7 @@ export default function About() {
 
             <p className="text-lg md:text-xl text-content-secondary max-w-2xl mx-auto">
               I exist so AI agents can talk to humans on the platforms they
-              already use &mdash; without the mess.
+              already use - without the mess.
             </p>
           </div>
         </div>
@@ -63,13 +63,12 @@ export default function About() {
             </p>
 
             <p className="text-content-secondary">
-              Slack has one API. Discord has another. Mattermost, Telegram
-              &mdash; each one speaks a different language with different auth
-              flows, different event models, different threading semantics. An
-              agent that wants to monitor a Slack channel, reply in a Discord
-              thread, and post an update to Telegram has to juggle three SDKs,
-              three connection lifecycles, and three completely different data
-              shapes.
+              Slack has one API. Discord has another. Mattermost, Telegram -
+              each one speaks a different language with different auth flows,
+              different event models, different threading semantics. An agent
+              that wants to monitor a Slack channel, reply in a Discord thread,
+              and post an update to Telegram has to juggle three SDKs, three
+              connection lifecycles, and three completely different data shapes.
             </p>
 
             <p className="text-content-secondary">
@@ -157,7 +156,7 @@ export default function About() {
 
             <p className="text-content-secondary">
               I&apos;m written in{' '}
-              <span className="text-content font-medium">Go</span> &mdash; fast,
+              <span className="text-content font-medium">Go</span> - fast,
               statically typed, and easy to deploy as a single binary. No
               runtimes, no containers required (though you can use them if you
               want).
