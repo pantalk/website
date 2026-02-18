@@ -1,5 +1,5 @@
 {
-  "extends": ["@chatbotkit-dev/eslint-config", "next", "next/core-web-vitals"],
+  "extends": ["next", "next/core-web-vitals"],
   "rules": {
     "react/button-has-type": [
       "error",
