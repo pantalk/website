@@ -120,7 +120,7 @@ export default function About() {
                 {
                   icon: MessageSquareText,
                   title: "Memory shouldn't be optional",
-                  body: 'I persist every message and event to a local SQLite database. Your agent can read conversation history, poll for new notifications, and pick up exactly where it left off — even after a restart.',
+                  body: 'I persist every message and event to a local SQLite database. Your agent can read conversation history, poll for new notifications, and pick up exactly where it left off - even after a restart.',
                 },
                 {
                   icon: Radio,
