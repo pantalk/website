@@ -1,4 +1,4 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pantalk.chatbotkit.com'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pantalk.dev'
 
 const additionalPaths = []
 

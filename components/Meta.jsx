@@ -14,9 +14,7 @@ import { url } from '@/lib/url'
  * @returns {object} JSON-LD structured data object
  */
 function generateStructuredData({ title, description, thisUrl, image }) {
-  const hostname = thisUrl
-    ? new URL(thisUrl).hostname
-    : 'pantalk.chatbotkit.com'
+  const hostname = thisUrl ? new URL(thisUrl).hostname : 'pantalk.dev'
 
   return {
     '@context': 'https://schema.org',
