@@ -3,7 +3,6 @@ module.exports = {
     './{components,hooks,layouts,pages,app}/**/*.{ts,tsx,js,jsx}',
     '../../shared/{components,hooks,layouts,pages}/**/*.{ts,tsx,js,jsx}',
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -20,5 +19,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [],
 }

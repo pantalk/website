@@ -4,8 +4,7 @@ import Link from 'next/link'
 
 import Logo from './Logo'
 
-import { ArrowRightIcon } from '@heroicons/react/24/solid'
-import { Github, Twitter, MessageCircle } from 'lucide-react'
+import { ArrowRight, Github, MessageCircle, Twitter } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -18,7 +17,8 @@ export default function Footer() {
                 Ready to unify your chat workflows?
               </h2>
               <p className="text-content-secondary">
-                Install Pantalk and start routing bot conversations through one local daemon.
+                Install Pantalk and start routing bot conversations through one
+                local daemon.
               </p>
             </div>
 
@@ -28,7 +28,7 @@ export default function Footer() {
                 className="px-6 text-sm py-3 bg-accent hover:bg-accent-secondary text-black font-medium rounded-full flex items-center justify-center gap-2 transition-all whitespace-nowrap"
               >
                 Install Pantalk
-                <ArrowRightIcon className="size-4" />
+                <ArrowRight className="size-4" />
               </Link>
               <Link
                 href="https://github.com/pantalk/pantalk"
@@ -53,16 +53,26 @@ export default function Footer() {
                 <span className="font-bold tracking-tight">pantalk</span>
               </Link>
               <p className="text-content-secondary text-sm mt-4 max-w-xs">
-                Open source daemon + CLI toolkit for chat services. Built with Go and designed for Unix-style workflows.
+                Open source daemon + CLI toolkit for chat services. Built with
+                Go and designed for Unix-style workflows.
               </p>
               <div className="flex items-center gap-4 mt-6">
-                <Link href="https://github.com/pantalk/pantalk" className="text-content-secondary hover:text-accent transition-colors">
+                <Link
+                  href="https://github.com/pantalk/pantalk"
+                  className="text-content-secondary hover:text-accent transition-colors"
+                >
                   <Github className="size-5" />
                 </Link>
-                <Link href="https://x.com/ChatBotKit" className="text-content-secondary hover:text-accent transition-colors">
+                <Link
+                  href="https://x.com/ChatBotKit"
+                  className="text-content-secondary hover:text-accent transition-colors"
+                >
                   <Twitter className="size-5" />
                 </Link>
-                <Link href="https://discord.gg/2aC9sDArcm" className="text-content-secondary hover:text-accent transition-colors">
+                <Link
+                  href="https://discord.gg/2aC9sDArcm"
+                  className="text-content-secondary hover:text-accent transition-colors"
+                >
                   <MessageCircle className="size-5" />
                 </Link>
               </div>
@@ -75,23 +85,44 @@ export default function Footer() {
                   { name: 'Features', href: '#features' },
                   { name: 'Quick Start', href: '#quick-start' },
                   { name: 'Installation', href: '#installation' },
-                  { name: 'README', href: 'https://github.com/pantalk/pantalk#readme' },
+                  {
+                    name: 'README',
+                    href: 'https://github.com/pantalk/pantalk#readme',
+                  },
                 ],
               },
               {
                 title: 'Connectors',
                 links: [
-                  { name: 'Slack', href: 'https://github.com/pantalk/pantalk#quick-start' },
-                  { name: 'Discord', href: 'https://github.com/pantalk/pantalk#quick-start' },
-                  { name: 'Mattermost', href: 'https://github.com/pantalk/pantalk#quick-start' },
-                  { name: 'Telegram', href: 'https://github.com/pantalk/pantalk#quick-start' },
+                  {
+                    name: 'Slack',
+                    href: 'https://github.com/pantalk/pantalk#quick-start',
+                  },
+                  {
+                    name: 'Discord',
+                    href: 'https://github.com/pantalk/pantalk#quick-start',
+                  },
+                  {
+                    name: 'Mattermost',
+                    href: 'https://github.com/pantalk/pantalk#quick-start',
+                  },
+                  {
+                    name: 'Telegram',
+                    href: 'https://github.com/pantalk/pantalk#quick-start',
+                  },
                 ],
               },
               {
                 title: 'Resources',
                 links: [
-                  { name: 'GitHub', href: 'https://github.com/pantalk/pantalk' },
-                  { name: 'Issues', href: 'https://github.com/pantalk/pantalk/issues' },
+                  {
+                    name: 'GitHub',
+                    href: 'https://github.com/pantalk/pantalk',
+                  },
+                  {
+                    name: 'Issues',
+                    href: 'https://github.com/pantalk/pantalk/issues',
+                  },
                   { name: 'Discord', href: 'https://discord.gg/2aC9sDArcm' },
                   { name: 'About', href: 'https://cbk.ai/about' },
                 ],
@@ -105,7 +136,9 @@ export default function Footer() {
               },
             ].map((section) => (
               <div key={section.title}>
-                <h3 className="text-sm font-medium text-content mb-4">{section.title}</h3>
+                <h3 className="text-sm font-medium text-content mb-4">
+                  {section.title}
+                </h3>
                 <ul className="space-y-3">
                   {section.links.map((link) => (
                     <li key={link.name}>
