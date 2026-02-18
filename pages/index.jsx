@@ -22,7 +22,6 @@ import {
   Send,
   Server,
   Settings,
-  Shield,
   Sparkles,
   Terminal,
   Workflow,
@@ -31,22 +30,22 @@ import {
 
 const features = [
   {
-    icon: Cable,
-    title: 'Single daemon, all providers',
+    icon: Bot,
+    title: 'Built for AI agents',
     description:
-      'pantalkd keeps chat provider sessions alive in one process and exposes a clean Unix socket - ready for any AI agent to connect.',
+      'Designed from the ground up to be used by AI agents - structured output, agent-native notifications, and skill definitions your agent can consume.',
   },
   {
     icon: MessageSquareText,
-    title: 'Multi-platform agent presence',
+    title: 'Multi-platform presence',
     description:
-      'Give your AI agent a presence on Slack, Discord, Mattermost, and Telegram from one unified interface.',
+      'Give your AI agent a voice on Slack, Discord, Mattermost, and Telegram from one unified interface. No per-platform code.',
   },
   {
-    icon: Terminal,
-    title: 'Skill-ready CLI interface',
+    icon: Cable,
+    title: 'Single daemon, all providers',
     description:
-      'Simple commands that compose with pipes, jq, and shell scripts - perfect for packaging as agent skills and tool-use actions.',
+      'pantalkd manages all chat provider sessions in one process - auth, reconnects, rate limits - so your agent can focus on conversations.',
   },
   {
     icon: Database,
@@ -56,15 +55,15 @@ const features = [
   },
   {
     icon: BellRing,
-    title: 'Agent-native notifications',
+    title: 'Smart notification routing',
     description:
-      'Surface mentions, DMs, and unseen messages as structured events your agent can reason about and act on.',
+      'Surface only the events that matter - mentions, DMs, and threads your agent is part of - as structured events ready for reasoning.',
   },
   {
-    icon: Shield,
-    title: 'Multi-platform in one config',
+    icon: Terminal,
+    title: 'Unix-composable interface',
     description:
-      'Connect Slack, Discord, Telegram, and Mattermost in a single file - one agent talks everywhere at once.',
+      'Simple CLI commands that compose with pipes, jq, and shell scripts - works with any language, framework, or orchestration tool.',
   },
 ]
 
@@ -258,8 +257,7 @@ function InstallationSection() {
 
               <p className="text-content-secondary text-sm text-center">
                 Your agent will install the binaries, create the config, start
-                the daemon, and verify everything is working &mdash;
-                autonomously.
+                the daemon, and verify everything is working - autonomously.
               </p>
             </div>
           )}
@@ -334,16 +332,13 @@ export default function Index() {
               <span className="text-content">Pantalk</span>
               <br />
               <span className="text-accent text-glow">chat for AI agents</span>
-              <br />
-              <span className="text-content-secondary">
-                one daemon, every platform
-              </span>
             </h1>
 
             <p className="text-lg md:text-xl text-content-secondary max-w-xl mb-8">
-              <span className="text-content font-medium">Pantalk</span> gives AI
-              agents a single local interface to send, receive, and stream
-              messages across Slack, Discord, Mattermost, and Telegram.
+              Give your AI agent a voice on every chat platform.
+              <span className="text-content font-medium"> Pantalk</span> lets
+              agents send, receive, and stream messages across Slack, Discord,
+              Mattermost, and Telegram through a single interface.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -352,7 +347,7 @@ export default function Index() {
                 className="h-12 px-6 text-base bg-accent hover:bg-accent-secondary text-black font-medium rounded-xl flex items-center gap-2 transition glow"
               >
                 <Download className="size-5" />
-                Install from Source
+                Install Pantalk
               </Link>
               <Link
                 href="https://github.com/pantalk/pantalk"
@@ -371,11 +366,11 @@ export default function Index() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
-              Built for AI agent workflows
+              Everything your agent needs to communicate
             </h2>
             <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-              One local control plane that lets your AI agent communicate across
-              every chat platform through a single, composable interface.
+              A complete agent communication layer - from sending messages to
+              streaming events to managing multi-platform presence.
             </p>
           </div>
 
@@ -545,8 +540,8 @@ export default function Index() {
               Works with every AI agent
             </h2>
             <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-              Copilot, Claude, Gemini, Codex, OpenClaw &mdash; it doesn&apos;t
-              matter. If your agent can run a command, it can talk to every chat
+              Copilot, Claude, Gemini, Codex, OpenClaw - it doesn&apos;t matter.
+              If your agent can run a command, it can talk to every chat
               platform. It simply works.
             </p>
           </div>
@@ -576,7 +571,7 @@ export default function Index() {
             <p className="text-content-secondary text-sm">
               Pantalk exposes chat as composable CLI skills. Any AI agent that
               supports tool-use, function calling, or shell execution can pick
-              them up instantly &mdash; zero custom integration code required.
+              them up instantly - zero custom integration code required.
             </p>
           </div>
         </div>
