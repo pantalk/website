@@ -39,7 +39,7 @@ const features = [
     icon: MessageSquareText,
     title: 'Multi-platform presence',
     description:
-      'Give your AI agent a voice on Slack, Discord, Mattermost, and Telegram from one unified interface. No per-platform code.',
+      'Give your AI agent a voice on Slack, Discord, Mattermost, Telegram, and WhatsApp from one unified interface. No per-platform code.',
   },
   {
     icon: Cable,
@@ -73,7 +73,7 @@ const skills = [
     name: 'pantalk-send-message',
     title: 'Send Message',
     description:
-      'Send messages to any channel or thread across Slack, Discord, Mattermost, and Telegram.',
+      'Send messages to any channel or thread across Slack, Discord, Mattermost, Telegram, and WhatsApp.',
   },
   {
     icon: BellRing,
@@ -161,7 +161,7 @@ const useCases = [
   {
     title: 'Multi-platform agent deployment',
     description:
-      'Deploy one AI agent across Slack, Discord, Mattermost, and Telegram without writing provider-specific code.',
+      'Deploy one AI agent across Slack, Discord, Mattermost, Telegram, and WhatsApp without writing provider-specific code.',
     icon: Server,
   },
 ]
@@ -415,7 +415,7 @@ export default function Index() {
                     step: '01',
                     title: "Configure your agent's channels",
                     description:
-                      'Define which Slack, Discord, Mattermost, or Telegram channels your agent should monitor and respond in.',
+                      'Define which Slack, Discord, Mattermost, Telegram, or WhatsApp channels your agent should monitor and respond in.',
                   },
                   {
                     step: '02',
@@ -468,7 +468,7 @@ export default function Index() {
                     ✓ config ready (~/.config/pantalk/config.yaml)
                   </div>
                   <div className="text-content-secondary">
-                    ✓ bots: slack, discord, mattermost, telegram
+                    ✓ bots: slack, discord, mattermost, telegram, whatsapp
                   </div>
                   <div className="mt-4">
                     <span className="text-accent">$</span>
@@ -647,7 +647,7 @@ export default function Index() {
 
               <ul className="space-y-4">
                 {[
-                  'Persistent connections to Slack, Discord, Mattermost, and Telegram',
+                  'Persistent connections to Slack, Discord, Mattermost, Telegram, and WhatsApp',
                   'Full conversation memory via local SQLite storage',
                   'Structured event stream for agent reasoning and tool-use',
                   'Composable CLI designed for LLM tool integration',
@@ -713,7 +713,7 @@ Index.getLayout = function (children) {
     <>
       <Meta
         title="Pantalk - Chat Infrastructure for AI Agents"
-        description="Pantalk is an open source daemon that gives AI agents a single local interface to communicate across Slack, Discord, Mattermost, and Telegram."
+        description="Pantalk is an open source daemon that gives AI agents a single local interface to communicate across Slack, Discord, Mattermost, Telegram, and WhatsApp."
         keywords={[
           'pantalk',
           'ai agent',
@@ -726,6 +726,7 @@ Index.getLayout = function (children) {
           'discord bot',
           'mattermost bot',
           'telegram bot',
+          'whatsapp bot',
           'agentic workflows',
           'llm tools',
           'go',

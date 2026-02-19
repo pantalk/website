@@ -21,7 +21,7 @@ npm run build
 
 Pantalk helps you manage multi-service bot communication from a single local daemon. It can:
 
-- Keep Slack, Discord, Mattermost, and Telegram sessions persistent
+- Keep Slack, Discord, Mattermost, Telegram, and WhatsApp sessions persistent
 - Expose a simple Unix socket protocol for CLI and agent tooling
 - Store local message history and notifications in SQLite
 - Support multi-bot routing with config-defined bot names
