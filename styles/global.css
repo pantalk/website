@@ -117,3 +117,25 @@
   animation: float-right 3s ease-in-out infinite;
   animation-delay: 0.5s;
 }
+
+@keyframes platform-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.platform-float {
+  animation: platform-float 3s ease-in-out infinite;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  cursor: default;
+}
+
+.platform-float:hover {
+  border-color: hsl(var(--accent));
+  box-shadow: 0 0 20px hsl(174 72% 50% / 0.25), 0 0 40px hsl(174 72% 50% / 0.15);
+  animation-play-state: paused;
+}
