@@ -131,7 +131,7 @@
 .platform-float {
   animation: platform-float 3s ease-in-out infinite;
   transition: border-color 0.3s, box-shadow 0.3s;
-  cursor: default;
+  cursor: pointer;
 }
 
 .platform-float:hover {
