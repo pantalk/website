@@ -39,7 +39,7 @@ const features = [
     icon: MessageSquareText,
     title: 'Multi-platform presence',
     description:
-      'Give your AI agent a voice on Slack, Discord, Mattermost, Telegram, WhatsApp, and IRC from one unified interface. No per-platform code.',
+      'Give your AI agent a voice on Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, and Matrix from one unified interface. No per-platform code.',
   },
   {
     icon: Cable,
@@ -73,7 +73,7 @@ const skills = [
     name: 'pantalk-send-message',
     title: 'Send Message',
     description:
-      'Send messages to any channel or thread across Slack, Discord, Mattermost, Telegram, WhatsApp, and IRC.',
+      'Send messages to any channel or thread across Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, and Matrix.',
   },
   {
     icon: BellRing,
@@ -161,7 +161,7 @@ const useCases = [
   {
     title: 'Multi-platform agent deployment',
     description:
-      'Deploy one AI agent across Slack, Discord, Mattermost, Telegram, WhatsApp, and IRC without writing provider-specific code.',
+      'Deploy one AI agent across Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, and Matrix without writing provider-specific code.',
     icon: Server,
   },
 ]
@@ -196,6 +196,11 @@ const platforms = [
     name: 'IRC',
     href: 'https://github.com/pantalk/pantalk/blob/main/docs/irc-setup.md',
     path: 'M3 3h18v12H3V3zm2 2v8h14V5H5zm1 1h4v2H6V6zm5 0h4v2h-4V6zm-5 3h3v2H6V9zm4 0h3v2h-3V9zm4 0h3v2h-3V9zM2 17h20v2H2v-2z',
+  },
+  {
+    name: 'Matrix',
+    href: 'https://github.com/pantalk/pantalk/blob/main/docs/matrix-setup.md',
+    path: 'M.632.55v22.9H2.28V24H0V0h2.28v.55zm7.043 7.26v1.157h.033c.309-.443.683-.784 1.117-1.024.433-.245.936-.365 1.5-.365.54 0 1.036.107 1.49.327.453.218.795.61 1.023 1.175.275-.39.616-.72 1.016-.99.4-.272.91-.512 1.51-.512.46 0 .882.057 1.26.175.378.116.703.3.97.554.268.256.473.57.617.95.144.374.22.82.22 1.344v5.76h-1.83v-4.82c0-.32-.015-.6-.044-.87-.03-.27-.1-.5-.213-.68-.117-.192-.278-.342-.492-.456-.213-.112-.508-.17-.882-.17-.376 0-.68.074-.915.22s-.42.33-.558.556c-.14.226-.23.484-.28.777-.05.29-.076.583-.076.876v4.567h-1.83v-4.7c0-.278-.006-.553-.018-.823-.013-.27-.064-.508-.158-.723-.094-.215-.25-.39-.47-.52-.218-.133-.53-.2-.933-.2-.108 0-.262.032-.46.1-.2.068-.392.19-.577.366-.186.176-.346.416-.478.715-.132.3-.2.68-.2 1.14v4.645h-1.83V7.81zm14.505 0v1.157h.033c.31-.443.683-.784 1.117-1.024.434-.245.936-.365 1.5-.365.54 0 1.036.107 1.49.327.453.218.795.61 1.024 1.175.274-.39.615-.72 1.015-.99.4-.272.91-.512 1.51-.512.46 0 .882.057 1.26.175.378.116.703.3.97.554.268.256.474.57.618.95.144.374.218.82.218 1.344v5.76h-1.83v-4.82c0-.32-.014-.6-.043-.87-.03-.27-.1-.5-.213-.68-.118-.192-.28-.342-.493-.456-.213-.112-.508-.17-.882-.17-.375 0-.68.074-.914.22-.235.146-.42.33-.56.556-.138.226-.23.484-.278.777-.05.29-.076.583-.076.876v4.567h-1.83v-4.7c0-.278-.005-.553-.017-.823-.013-.27-.064-.508-.158-.723-.094-.215-.25-.39-.47-.52-.218-.133-.53-.2-.932-.2-.11 0-.263.032-.46.1-.2.068-.394.19-.578.366-.186.176-.345.416-.478.715-.132.3-.198.68-.198 1.14v4.645h-1.83V7.81zM23.368.55V24H24V0h-2.28v.55z',
   },
 ]
 
@@ -468,7 +473,7 @@ export default function Index() {
                     step: '01',
                     title: "Configure your agent's channels",
                     description:
-                      'Define which Slack, Discord, Mattermost, Telegram, WhatsApp, or IRC channels your agent should monitor and respond in.',
+                      'Define which Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, or Matrix channels your agent should monitor and respond in.',
                   },
                   {
                     step: '02',
@@ -521,7 +526,8 @@ export default function Index() {
                     ✓ config ready (~/.config/pantalk/config.yaml)
                   </div>
                   <div className="text-content-secondary">
-                    ✓ bots: slack, discord, mattermost, telegram, whatsapp
+                    ✓ bots: slack, discord, mattermost, telegram, whatsapp,
+                    matrix
                   </div>
                   <div className="mt-4">
                     <span className="text-accent">$</span>
@@ -700,7 +706,7 @@ export default function Index() {
 
               <ul className="space-y-4">
                 {[
-                  'Persistent connections to Slack, Discord, Mattermost, Telegram, WhatsApp, and IRC',
+                  'Persistent connections to Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, and Matrix',
                   'Full conversation memory via local SQLite storage',
                   'Structured event stream for agent reasoning and tool-use',
                   'Composable CLI designed for LLM tool integration',
@@ -766,7 +772,7 @@ Index.getLayout = function (children) {
     <>
       <Meta
         title="Pantalk - Chat Infrastructure for AI Agents"
-        description="Pantalk is an open source daemon that gives AI agents a single local interface to communicate across Slack, Discord, Mattermost, Telegram, WhatsApp, and IRC."
+        description="Pantalk is an open source daemon that gives AI agents a single local interface to communicate across Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, and Matrix."
         keywords={[
           'pantalk',
           'ai agent',
@@ -780,6 +786,7 @@ Index.getLayout = function (children) {
           'mattermost bot',
           'telegram bot',
           'whatsapp bot',
+          'matrix bot',
           'agentic workflows',
           'llm tools',
           'go',
