@@ -39,7 +39,7 @@ const features = [
     icon: MessageSquareText,
     title: 'Multi-platform presence',
     description:
-      'Give your AI agent a voice on Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio, and Zulip from one unified interface. No per-platform code.',
+      'Give your AI agent a voice on Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio, Zulip, and iMessage from one unified interface. No per-platform code.',
   },
   {
     icon: Cable,
@@ -73,7 +73,7 @@ const skills = [
     name: 'pantalk-send-message',
     title: 'Send Message',
     description:
-      'Send messages to any channel or thread across Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio, and Zulip.',
+      'Send messages to any channel or thread across Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio, Zulip, and iMessage.',
   },
   {
     icon: BellRing,
@@ -206,6 +206,11 @@ const platforms = [
     name: 'Zulip',
     href: 'https://github.com/pantalk/pantalk/blob/main/docs/zulip-setup.md',
     path: 'M2.19 6.424c0-1.693.531-2.347 2.1-2.347h12.527c1.047 0 1.932.116 1.932 1.163 0 .818-.605 1.314-1.327 1.885L9.156 13.84h8.27c1.568 0 2.1.655 2.1 2.348v1.387c0 1.694-.532 2.348-2.1 2.348H4.898c-1.047 0-1.932-.115-1.932-1.163 0-.818.605-1.314 1.327-1.884L12.559 10.16H4.29c-1.569 0-2.1-.655-2.1-2.348V6.424Z',
+  },
+  {
+    name: 'iMessage',
+    href: 'https://github.com/pantalk/pantalk/blob/main/docs/imessage-setup.md',
+    path: 'M5.285 0A5.273 5.273 0 0 0 0 5.285v13.43A5.273 5.273 0 0 0 5.285 24h13.43A5.273 5.273 0 0 0 24 18.715V5.285A5.273 5.273 0 0 0 18.715 0ZM12 4.154a8.809 7.337 0 0 1 8.809 7.338A8.809 7.337 0 0 1 12 18.828a8.809 7.337 0 0 1-2.492-.303A8.656 7.337 0 0 1 5.93 19.93a9.929 7.337 0 0 0 1.54-2.155 8.809 7.337 0 0 1-4.279-6.283A8.809 7.337 0 0 1 12 4.154',
   },
 ]
 
@@ -793,6 +798,7 @@ Index.getLayout = function (children) {
           'whatsapp bot',
           'matrix bot',
           'zulip bot',
+          'imessage bot',
           'agentic workflows',
           'llm tools',
           'go',

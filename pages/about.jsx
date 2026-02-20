@@ -64,7 +64,7 @@ export default function About() {
 
             <p className="text-content-secondary">
               Slack has one API. Discord has another. Mattermost, Telegram,
-              WhatsApp, IRC, Matrix, Twilio, Zulip - each one speaks a different language with
+              WhatsApp, IRC, Matrix, Twilio, Zulip, iMessage - each one speaks a different language with
               different auth flows, different event models, different threading
               semantics. An agent that wants to monitor a Slack channel, reply
               in a Discord thread, and post an update to Telegram has to juggle
