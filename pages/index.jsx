@@ -134,11 +134,6 @@ const agents = [
       'Equip Codex with chat skills to report build results, post code reviews, and answer questions in real time.',
   },
   {
-    name: 'OpenClaw',
-    description:
-      'Give OpenClaw agents persistent chat presence with full conversation memory and notification handling.',
-  },
-  {
     name: 'Any Agent',
     description:
       'Pantalk is agent-agnostic. Any AI that can call a CLI command or read from a Unix socket gets instant chat abilities.',
@@ -609,9 +604,9 @@ export default function Index() {
               Works with every AI agent
             </h2>
             <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-              Copilot, Claude, Gemini, Codex, OpenClaw - it doesn&apos;t matter.
-              If your agent can run a command, it can talk to every chat
-              platform. It simply works.
+              Copilot, Claude, Gemini, Codex - it doesn&apos;t matter. If your
+              agent can run a command, it can talk to every chat platform. It
+              simply works.
             </p>
           </div>
 
@@ -806,7 +801,6 @@ Index.getLayout = function (children) {
           'claude',
           'gemini',
           'codex',
-          'openclaw',
         ]}
         thisUrl="https://pantalk.dev"
       />
