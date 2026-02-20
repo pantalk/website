@@ -64,7 +64,7 @@ export default function About() {
 
             <p className="text-content-secondary">
               Slack has one API. Discord has another. Mattermost, Telegram,
-              WhatsApp, Matrix - each one speaks a different language with
+              WhatsApp, IRC - each one speaks a different language with
               different auth flows, different event models, different threading
               semantics. An agent that wants to monitor a Slack channel, reply
               in a Discord thread, and post an update to Telegram has to juggle
@@ -275,7 +275,7 @@ About.getLayout = function (children) {
     <>
       <Meta
         title="About Pantalk - Chat Infrastructure for AI Agents"
-        description="Pantalk is an open source daemon that gives AI agents a single local interface to communicate across Slack, Discord, Mattermost, Telegram, WhatsApp, and Matrix. Here's why it exists."
+        description="Pantalk is an open source daemon that gives AI agents a single local interface to communicate across Slack, Discord, Mattermost, Telegram, WhatsApp, and IRC. Here's why it exists."
         keywords={[
           'pantalk',
           'about',
