@@ -254,7 +254,7 @@ export default function About() {
                 href="https://mcpshim.dev"
                 className="text-accent hover:text-accent-secondary transition-colors"
               >
-                mcpshim
+                MCPShim
               </Link>{' '}
               — my sibling project that turns remote MCP servers into local
               commands for AI agents.
