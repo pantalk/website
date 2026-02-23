@@ -134,6 +134,11 @@ const agents = [
       'Equip Codex with chat skills to report build results, post code reviews, and answer questions in real time.',
   },
   {
+    name: 'OpenCode',
+    description:
+      'Give OpenCode chat superpowers to relay progress, ask for feedback, and post results to any platform from the terminal.',
+  },
+  {
     name: 'Any Agent',
     description:
       'Pantalk is agent-agnostic. Any AI that can call a CLI command or read from a Unix socket gets instant chat abilities.',
