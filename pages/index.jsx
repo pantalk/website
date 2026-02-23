@@ -743,6 +743,50 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Companion Project Section */}
+      <section className="py-24 border-t border-stroke/50">
+        <div className="container">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+            <div className="max-w-lg">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 mb-6">
+                <Plug className="size-4 text-accent" />
+                <span className="text-xs text-accent">Companion project</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-content mb-3">
+                Give your agent tools too
+              </h2>
+              <p className="text-content-secondary">
+                Pantalk gives your agent a voice.{' '}
+                <Link
+                  href="https://mcpshim.dev"
+                  className="text-accent hover:text-accent-secondary transition-colors"
+                >
+                  mcpshim
+                </Link>{' '}
+                gives it tools — turning remote MCP servers into simple local
+                commands. Together they form a complete agent infrastructure
+                stack.
+              </p>
+            </div>
+            <div className="flex items-center gap-4">
+              <Link
+                href="https://mcpshim.dev"
+                className="px-6 text-sm py-3 bg-accent hover:bg-accent-secondary text-black font-medium rounded-full flex items-center justify-center gap-2 transition-all whitespace-nowrap"
+              >
+                Explore mcpshim
+                <ArrowRight className="size-4" />
+              </Link>
+              <Link
+                href="https://github.com/mcpshim/mcpshim"
+                className="px-6 text-sm py-3 bg-background-secondary text-content-secondary hover:text-content border border-stroke rounded-full flex items-center justify-center gap-2 hover:bg-background-tertiary transition-all whitespace-nowrap"
+              >
+                GitHub
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Help & Support Section */}
       <section className="py-24 border-t border-stroke/50">
         <div className="container">
@@ -807,6 +851,9 @@ Index.getLayout = function (children) {
           'claude',
           'gemini',
           'codex',
+          'mcpshim',
+          'mcp',
+          'model context protocol',
         ]}
         thisUrl="https://pantalk.dev"
       />
