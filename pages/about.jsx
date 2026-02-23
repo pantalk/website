@@ -64,12 +64,12 @@ export default function About() {
 
             <p className="text-content-secondary">
               Slack has one API. Discord has another. Mattermost, Telegram,
-              WhatsApp, IRC, Matrix, Twilio, Zulip, iMessage - each one speaks a different language with
-              different auth flows, different event models, different threading
-              semantics. An agent that wants to monitor a Slack channel, reply
-              in a Discord thread, and post an update to Telegram has to juggle
-              three SDKs, three connection lifecycles, and three completely
-              different data shapes.
+              WhatsApp, IRC, Matrix, Twilio, Zulip, iMessage - each one speaks a
+              different language with different auth flows, different event
+              models, different threading semantics. An agent that wants to
+              monitor a Slack channel, reply in a Discord thread, and post an
+              update to Telegram has to juggle three SDKs, three connection
+              lifecycles, and three completely different data shapes.
             </p>
 
             <p className="text-content-secondary">
@@ -247,6 +247,17 @@ export default function About() {
                 CBK AI
               </Link>
               . You can explore my code, report issues, or contribute on GitHub.
+            </p>
+            <p className="text-content-secondary text-base max-w-xl mx-auto mt-4">
+              Also check out{' '}
+              <Link
+                href="https://mcpshim.dev"
+                className="text-accent hover:text-accent-secondary transition-colors"
+              >
+                mcpshim
+              </Link>{' '}
+              — my sibling project that turns remote MCP servers into local
+              commands for AI agents.
             </p>
             <div className="flex items-center justify-center gap-4 pt-4">
               <Link
