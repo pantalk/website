@@ -766,7 +766,7 @@ export default function Index() {
                   href="https://mcpshim.dev"
                   className="text-accent hover:text-accent-secondary transition-colors"
                 >
-                  mcpshim
+                  MCPShim
                 </Link>{' '}
                 gives it tools — turning remote MCP servers into simple local
                 commands. Together they form a complete agent infrastructure
@@ -778,7 +778,7 @@ export default function Index() {
                 href="https://mcpshim.dev"
                 className="px-6 text-sm py-3 bg-accent hover:bg-accent-secondary text-black font-medium rounded-full flex items-center justify-center gap-2 transition-all whitespace-nowrap"
               >
-                Explore mcpshim
+                Explore MCPShim
                 <ArrowRight className="size-4" />
               </Link>
               <Link
