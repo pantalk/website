@@ -280,7 +280,7 @@ function InstallationSection() {
                     <div className="rounded-xl border border-stroke bg-background-tertiary/30 p-4 font-mono text-sm overflow-x-auto">
                       <code className="text-accent break-all">
                         curl -fsSL
-                        https://raw.githubusercontent.com/pantalk/skills/refs/heads/master/pantalk-install/SKILL.md
+                        https://raw.githubusercontent.com/pantalk/skills/refs/heads/main/pantalk-install/SKILL.md
                         -o PANTALK_INSTALL.md
                       </code>
                     </div>
@@ -768,8 +768,8 @@ export default function Index() {
                 >
                   MCPShim
                 </Link>{' '}
-                gives it tools — turning remote MCP servers into simple local
-                commands. Together they form a complete agent infrastructure
+                gives it tools - exposing any MCP server as a standard CLI
+                command. Together they form a complete agent infrastructure
                 stack.
               </p>
             </div>

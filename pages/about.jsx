@@ -256,8 +256,8 @@ export default function About() {
               >
                 MCPShim
               </Link>{' '}
-              — my sibling project that turns remote MCP servers into local
-              commands for AI agents.
+              - my sibling project that exposes any MCP server as a standard CLI
+              command for AI agents.
             </p>
             <div className="flex items-center justify-center gap-4 pt-4">
               <Link
