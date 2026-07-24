@@ -24,7 +24,7 @@ export default function Navbar() {
       <div className="relative container flex items-center justify-between h-full">
         <Link href="/" className="flex items-center space-x-3 group">
           <Logo className="text-accent group-hover:text-accent-secondary transition-colors" />
-          <p className="font-bold text-xl tracking-tight text-white">pantalk</p>
+          <p className="font-bold text-xl tracking-tight text-white">Pantalk</p>
         </Link>
 
         {/* Desktop Menu */}
