@@ -75,13 +75,13 @@ export default function About() {
 
             <p className="text-content-secondary">
               And the platform side is no easier. Slack has one API. Discord has
-              another. Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio,
-              Zulip, iMessage - each one speaks a different language with
-              different auth flows, different event models, different threading
-              semantics. An agent that wants to monitor a Slack channel, reply
-              in a Discord thread, and post an update to Telegram has to juggle
-              three SDKs, three connection lifecycles, and three completely
-              different data shapes.
+              another. Mattermost, Telegram, WhatsApp, IRC, XMPP/Jabber, Twitch,
+              Nostr, Matrix, Twilio, Zulip, iMessage - each one speaks a
+              different language with different auth flows, different event
+              models, and different threading semantics. An agent that wants to
+              monitor a Slack channel, reply in an XMPP room, and post to a
+              Nostr group has to juggle three SDKs, three connection lifecycles,
+              and three completely different data shapes.
             </p>
 
             <p className="text-content-secondary">
@@ -285,7 +285,7 @@ export default function About() {
               Also check out{' '}
               <Link
                 href="https://mcpshim.dev"
-                className="text-accent hover:text-accent-secondary transition-colors"
+                className="text-mcpshim hover:text-mcpshim-secondary transition-colors"
               >
                 MCPShim
               </Link>{' '}

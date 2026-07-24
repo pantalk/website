@@ -11,6 +11,8 @@ module.exports = {
         'stroke-secondary': 'hsl(var(--stroke-secondary))',
         accent: 'hsl(var(--accent))',
         'accent-secondary': 'hsl(var(--accent-secondary))',
+        mcpshim: 'hsl(var(--mcpshim))',
+        'mcpshim-secondary': 'hsl(var(--mcpshim-secondary))',
         content: 'hsl(var(--content))',
         'content-secondary': 'hsl(var(--content-secondary))',
       },

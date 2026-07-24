@@ -1,0 +1,21 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# production
+dist/
+
+# generated sitemap
+public/robots.txt
+public/sitemap*.xml
+
+# local environment files
+.env*.local
+
+# misc
+*.log
+*.tsbuildinfo
+.DS_Store

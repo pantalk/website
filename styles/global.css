@@ -34,6 +34,11 @@
 
     --content: 0 0% 100%;
     --content-secondary: 210 10% 55%;
+
+    /* MCPShim brand accent, mirrored from mcpshim.dev so the companion
+       section reads in its own color rather than Pantalk's. */
+    --mcpshim: 34 95% 58%;
+    --mcpshim-secondary: 14 95% 63%;
   }
 }
 

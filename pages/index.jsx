@@ -55,9 +55,9 @@ const features = [
   },
   {
     icon: MessageSquareText,
-    title: 'Ten platforms, one interface',
+    title: 'Thirteen platforms, one interface',
     description:
-      'Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio/SMS, Zulip, and iMessage from one unified interface. No per-platform code, ever.',
+      'Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, XMPP/Jabber, Twitch, Nostr, Matrix, Twilio/SMS, Zulip, and iMessage from one unified interface.',
   },
   {
     icon: Cable,
@@ -85,7 +85,7 @@ const skills = [
     name: 'pantalk-send-message',
     title: 'Send Message',
     description:
-      'Send messages to any channel or thread across Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio, Zulip, and iMessage.',
+      'Send messages to channels, rooms, groups, DMs, and threads across all thirteen supported platforms.',
   },
   {
     icon: BellRing,
@@ -153,7 +153,7 @@ const agents = [
     name: 'Goose, OpenCode, Aider',
     driver: 'command driver',
     description:
-      'Allowlisted out of the box. Each is a driver line in YAML, and each reaches the same ten platforms as every other harness.',
+      'Allowlisted out of the box. Each is a driver line in YAML, and each reaches the same thirteen platforms as every other harness.',
   },
   {
     name: 'Anything else',
@@ -223,6 +223,21 @@ const platforms = [
     name: 'IRC',
     href: 'https://github.com/pantalk/pantalk/blob/main/docs/irc-setup.md',
     path: 'M3 3h18v12H3V3zm2 2v8h14V5H5zm1 1h4v2H6V6zm5 0h4v2h-4V6zm-5 3h3v2H6V9zm4 0h3v2h-3V9zm4 0h3v2h-3V9zM2 17h20v2H2v-2z',
+  },
+  {
+    name: 'XMPP / Jabber',
+    href: 'https://github.com/pantalk/pantalk/blob/main/docs/xmpp-setup.md',
+    path: 'M2 3h20v14H8l-6 4V3zm3 3v9.17L7.4 13H20V6H5zm1.2 1L12 11l5.8-4h-2.6L12 9.2 8.8 7H6.2z',
+  },
+  {
+    name: 'Twitch',
+    href: 'https://github.com/pantalk/pantalk/blob/main/docs/twitch-setup.md',
+    path: 'M2.149 0 .537 4.119v16.836h5.731V24h3.224l3.224-3.045h4.836L24 16.836V0H2.149zm19.701 15.761-3.761 3.582h-5.731l-3.224 3.045v-3.045H4.299V2.149H21.85v13.612zM18.806 5.731v6.448h-2.149V5.731h2.149zm-5.731 0v6.448h-2.149V5.731h2.149z',
+  },
+  {
+    name: 'Nostr',
+    href: 'https://github.com/pantalk/pantalk/blob/main/docs/nostr-setup.md',
+    path: 'M3 3h4l10 13V3h4v18h-4L7 8v13H3V3z',
   },
   {
     name: 'Matrix',
@@ -565,7 +580,7 @@ export default function Index() {
                     step: '02',
                     title: 'Declare your platforms',
                     description:
-                      'Each bot is a name plus a type - slack, discord, telegram, whatsapp, irc, matrix, twilio, zulip. Nothing in this block mentions a harness.',
+                      'Each bot is a name plus a connector type - slack, xmpp, twitch, nostr, or any other supported platform. Nothing in this block mentions a harness.',
                   },
                   {
                     step: '03',
@@ -801,12 +816,46 @@ export default function Index() {
               Pantalk Station
             </h2>
             <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-              The showcase. A browser-accessible Linux desktop with Pantalk,
+              The showcase. A full Linux desktop in your browser with Pantalk,
               Codex, and Claude Code already installed and registered as agents
-              - so you can watch a harness join a real chat server instead of
+              - so you can watch an agent join a real chat server instead of
               taking our word for it.
             </p>
           </div>
+
+          {/* Screenshot */}
+          <Link
+            href="https://github.com/pantalk/station"
+            className="group block max-w-5xl mx-auto mb-16 no-underline"
+          >
+            <div className="relative">
+              <div className="absolute -inset-4 bg-accent/10 blur-3xl rounded-full opacity-60 group-hover:opacity-100 transition-opacity" />
+              <div className="relative rounded-2xl border border-stroke group-hover:border-accent/40 bg-background-secondary/50 overflow-hidden transition-colors">
+                {/* Browser chrome */}
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-stroke/50 bg-background-tertiary/30">
+                  <div className="w-3 h-3 rounded-full bg-red-500/60" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/60" />
+                  <div className="ml-3 px-3 py-1 rounded-md bg-background/60 border border-stroke/50 text-[11px] font-mono text-content-secondary">
+                    127.0.0.1:6902
+                  </div>
+                </div>
+                <img
+                  src="/station.png"
+                  alt="Pantalk Station running in a browser: an Openbox Linux desktop with a terminal, the Pantalk daemon, and Codex and Claude Code installed as agents"
+                  width={3456}
+                  height={2234}
+                  loading="lazy"
+                  className="w-full h-auto block"
+                />
+              </div>
+            </div>
+            <p className="text-center text-sm text-content-secondary mt-4 group-hover:text-content transition-colors">
+              This is the whole thing - no VNC client, no dashboard, no setup
+              wizard.{' '}
+              <span className="text-accent">Explore Station on GitHub →</span>
+            </p>
+          </Link>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="space-y-6">
@@ -930,7 +979,7 @@ export default function Index() {
 
               <ul className="space-y-4">
                 {[
-                  'Persistent connections to Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio, and Zulip',
+                  'Connectors for Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, XMPP/Jabber, Twitch, Nostr, Matrix, Twilio, Zulip, and iMessage',
                   'Native drivers for Claude Code and Codex, command driver for every other harness',
                   'Full conversation memory via local SQLite storage',
                   'Structured event stream for agent reasoning and tool-use',
@@ -960,42 +1009,46 @@ export default function Index() {
       {/* Companion Project Section */}
       <section className="py-24 border-t border-stroke/50">
         <div className="container">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-            <div className="max-w-lg">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 mb-6">
-                <Plug className="size-4 text-accent" />
-                <span className="text-xs text-accent">Companion project</span>
+          <div className="relative rounded-3xl border border-mcpshim/20 bg-mcpshim/[0.03] p-8 md:p-10 overflow-hidden">
+            <div className="absolute -top-24 -right-24 w-64 h-64 bg-mcpshim/10 blur-3xl rounded-full pointer-events-none" />
+
+            <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-8">
+              <div className="max-w-lg">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-mcpshim/30 bg-mcpshim/5 mb-6">
+                  <Plug className="size-4 text-mcpshim" />
+                  <span className="text-xs text-mcpshim">Companion project</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-content mb-3">
+                  Give your agent tools too
+                </h2>
+                <p className="text-content-secondary">
+                  Pantalk plugs your agent into the chat apps people talk on.{' '}
+                  <Link
+                    href="https://mcpshim.dev"
+                    className="text-mcpshim hover:text-mcpshim-secondary transition-colors"
+                  >
+                    MCPShim
+                  </Link>{' '}
+                  plugs tools into the agent - exposing any MCP server as a
+                  standard CLI command. Together they form a complete agent
+                  infrastructure stack.
+                </p>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-content mb-3">
-                Give your harness tools too
-              </h2>
-              <p className="text-content-secondary">
-                Pantalk plugs your harness into the platforms people talk on.{' '}
+              <div className="flex items-center gap-4">
                 <Link
                   href="https://mcpshim.dev"
-                  className="text-accent hover:text-accent-secondary transition-colors"
+                  className="px-6 text-sm py-3 bg-mcpshim hover:bg-mcpshim-secondary text-black font-medium rounded-full flex items-center justify-center gap-2 transition-all whitespace-nowrap"
                 >
-                  MCPShim
-                </Link>{' '}
-                plugs tools into the harness - exposing any MCP server as a
-                standard CLI command. Together they form a complete agent
-                infrastructure stack.
-              </p>
-            </div>
-            <div className="flex items-center gap-4">
-              <Link
-                href="https://mcpshim.dev"
-                className="px-6 text-sm py-3 bg-accent hover:bg-accent-secondary text-black font-medium rounded-full flex items-center justify-center gap-2 transition-all whitespace-nowrap"
-              >
-                Explore MCPShim
-                <ArrowRight className="size-4" />
-              </Link>
-              <Link
-                href="https://github.com/mcpshim/mcpshim"
-                className="px-6 text-sm py-3 bg-background-secondary text-content-secondary hover:text-content border border-stroke rounded-full flex items-center justify-center gap-2 hover:bg-background-tertiary transition-all whitespace-nowrap"
-              >
-                GitHub
-              </Link>
+                  Explore MCPShim
+                  <ArrowRight className="size-4" />
+                </Link>
+                <Link
+                  href="https://github.com/mcpshim/mcpshim"
+                  className="px-6 text-sm py-3 bg-background-secondary text-content-secondary hover:text-content border border-stroke rounded-full flex items-center justify-center gap-2 hover:bg-background-tertiary transition-all whitespace-nowrap"
+                >
+                  GitHub
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -1040,7 +1093,7 @@ Index.getLayout = function (children) {
     <>
       <Meta
         title="Pantalk - Any Agent, Any Chat"
-        description="An open source daemon that puts the coding agent you already run - Claude Code, Codex, Copilot, Gemini CLI, Goose, OpenCode, Aider - into the chat apps your team already uses: Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, SMS, and Zulip. Nothing is welded together, so you can change either end later."
+        description="An open source daemon that puts the coding agent you already run into Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, XMPP/Jabber, Twitch, Nostr, Matrix, SMS, Zulip, and iMessage. Nothing is welded together, so you can change either end later."
         keywords={[
           'pantalk',
           'agentic harness',
@@ -1057,6 +1110,10 @@ Index.getLayout = function (children) {
           'mattermost bot',
           'telegram bot',
           'whatsapp bot',
+          'xmpp bot',
+          'jabber bot',
+          'twitch chat bot',
+          'nostr bot',
           'matrix bot',
           'zulip bot',
           'imessage bot',
