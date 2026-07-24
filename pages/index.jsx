@@ -15,55 +15,67 @@ import {
   Database,
   Download,
   History,
+  GitPullRequest,
   List,
   MessageSquareText,
+  MonitorPlay,
   Plug,
+  Siren,
   Radio,
   Send,
-  Server,
   Settings,
   Sparkles,
   Terminal,
-  Workflow,
+  Users,
   Zap,
 } from 'lucide-react'
 
+const harnesses = [
+  'Claude Code',
+  'Codex',
+  'Copilot',
+  'Gemini CLI',
+  'Goose',
+  'OpenCode',
+  'Aider',
+]
+
 const features = [
   {
-    icon: Bot,
-    title: 'Built for AI agents',
+    icon: Plug,
+    title: 'Both ends are pluggable',
     description:
-      'Designed from the ground up to be used by AI agents - structured output, agent-native notifications, and skill definitions your agent can consume.',
+      'Harnesses attach through drivers, platforms through connectors, and neither knows about the other. Swap Claude Code for Codex, or Slack for WhatsApp, without touching the other side.',
+  },
+  {
+    icon: Bot,
+    title: 'Native harness drivers',
+    description:
+      'Claude Code and Codex run as persistent sessions with durable per-conversation threads. Copilot, Gemini CLI, Goose, OpenCode, and Aider run through the command driver. Anything else works too.',
   },
   {
     icon: MessageSquareText,
-    title: 'Multi-platform presence',
+    title: 'Ten platforms, one interface',
     description:
-      'Give your AI agent a voice on Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio, Zulip, and iMessage from one unified interface. No per-platform code.',
+      'Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio/SMS, Zulip, and iMessage from one unified interface. No per-platform code, ever.',
   },
   {
     icon: Cable,
     title: 'Single daemon, all providers',
     description:
-      'pantalkd manages all chat provider sessions in one process - auth, reconnects, rate limits - so your agent can focus on conversations.',
+      'pantalkd manages every provider session in one process - auth, reconnects, rate limits - so your harness only ever speaks one local protocol.',
   },
   {
     icon: Database,
     title: 'Persistent conversation memory',
     description:
-      'All messages and events are stored in SQLite so your agent retains full conversation context across restarts.',
+      'All messages and events are stored in SQLite, so sessions stay isolated per bot, channel, and thread, and survive restarts on both sides.',
   },
   {
     icon: BellRing,
     title: 'Smart notification routing',
     description:
       'Surface only the events that matter - mentions, DMs, and threads your agent is part of - as structured events ready for reasoning.',
-  },
-  {
-    icon: Terminal,
-    title: 'Unix-composable interface',
-    description:
-      'Simple CLI commands that compose with pipes, jq, and shell scripts - works with any language, framework, or orchestration tool.',
   },
 ]
 
@@ -114,55 +126,70 @@ const skills = [
 
 const agents = [
   {
-    name: 'GitHub Copilot',
+    name: 'Claude Code',
+    driver: 'native driver',
     description:
-      'Give Copilot the ability to send updates, triage issues, and notify your team across every chat platform.',
-  },
-  {
-    name: 'Claude',
-    description:
-      'Let Claude monitor conversations, respond to mentions, and manage multi-platform threads autonomously.',
-  },
-  {
-    name: 'Gemini',
-    description:
-      'Connect Gemini to your team channels so it can stream events, summarize discussions, and take action.',
+      'Persistent sessions that reuse your local Claude Code auth and config, with permission modes and tool allowlists honoured per agent.',
   },
   {
     name: 'Codex',
+    driver: 'native driver',
     description:
-      'Equip Codex with chat skills to report build results, post code reviews, and answer questions in real time.',
+      'One persistent app-server process with a durable Codex thread per conversation, plus sandbox and approval policy per agent.',
   },
   {
-    name: 'OpenCode',
+    name: 'GitHub Copilot',
+    driver: 'command driver',
     description:
-      'Give OpenCode chat superpowers to relay progress, ask for feedback, and post results to any platform from the terminal.',
+      'Launch Copilot on matching mentions and DMs to report build results, post code reviews, and answer questions in real time.',
   },
   {
-    name: 'Any Agent',
+    name: 'Gemini CLI',
+    driver: 'command driver',
     description:
-      'Pantalk is agent-agnostic. Any AI that can call a CLI command or read from a Unix socket gets instant chat abilities.',
+      'Bind Gemini to any channel so it can summarize discussions, triage threads, and take action where the conversation happens.',
+  },
+  {
+    name: 'Goose, OpenCode, Aider',
+    driver: 'command driver',
+    description:
+      'Allowlisted out of the box. Each is a driver line in YAML, and each reaches the same ten platforms as every other harness.',
+  },
+  {
+    name: 'Anything else',
+    driver: 'socket or --allow-exec',
+    description:
+      'Pantalk is harness-agnostic. If it can run a CLI command or open a Unix socket, it can be the agent on the other end of the conversation.',
   },
 ]
 
 const useCases = [
   {
-    title: 'Agentic inbox triage',
+    title: 'Ship code from a chat thread',
+    tagline: 'Your coding assistant, where the conversation already is',
+    icon: GitPullRequest,
     description:
-      'Let your AI agent monitor multiple chat platforms, prioritize incoming messages, and respond or escalate autonomously.',
-    icon: Bot,
+      'Claude Code and Codex already open PRs, fix failing tests, and review diffs - they just do it in a terminal nobody else can see. Bind one to a channel and the work happens in the thread where it was asked for.',
+    detail:
+      'The harness runs in your repo with your sandbox and approval settings. Someone asks for a fix in #engineering, the PR link comes back in the same thread, and the whole team watched it happen.',
   },
   {
-    title: 'Autonomous incident response',
+    title: 'Agents that act on incidents',
+    tagline: 'Awake at 3am so nobody else has to be',
+    icon: Siren,
     description:
-      'Stream alerts and threads into your agent for automated triage, runbook execution, and status updates across channels.',
-    icon: Workflow,
+      'Stream alerts into an agent that triages, runs the runbook, and reports back - in the channel your on-call is already watching, or over SMS to a phone with no app installed.',
+    detail:
+      'Ordered when: bindings decide what escalates and what gets handled quietly. Scheduled prompts let the same agent post a morning summary before anyone opens a laptop.',
   },
   {
-    title: 'Multi-platform agent deployment',
+    title: 'One subscription, whole team',
+    tagline: 'Stop buying a seat for everyone',
+    icon: Users,
     description:
-      'Deploy one AI agent across Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio, and Zulip without writing provider-specific code.',
-    icon: Server,
+      'Pantalk runs one authenticated Claude Code or Codex install and puts it in chat. Every teammate reaches it by DM or mention - no per-person license, no local setup, nothing to install.',
+    detail:
+      "Sessions stay isolated per user, channel, and thread, so nobody sees anybody else's context. Non-engineers get the same assistant without ever touching a terminal.",
   },
 ]
 
@@ -227,10 +254,10 @@ function InstallationSection() {
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
-            Get your agent online in seconds
+            Get your harness online in seconds
           </h2>
           <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-            Let your AI agent install Pantalk itself, or do it manually.
+            Let the harness install Pantalk itself, or do it manually.
           </p>
         </div>
 
@@ -377,42 +404,86 @@ export default function Index() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-stroke bg-background-secondary/50 backdrop-blur-sm mb-6">
               <span className="text-xs text-content-secondary">
-                Open source • Go • Built for AI agents
+                Open source • Go • Built for agentic harnesses
               </span>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
               <span className="text-content">Pantalk</span>
               <br />
-              <span className="text-accent text-glow">chat for AI agents</span>
+              <span className="text-accent text-glow">
+                any agent, any chat
+              </span>
             </h1>
 
-            <div className="flex flex-wrap gap-3 mb-8">
-              {platforms.map((platform, i) => (
-                <Link
-                  key={platform.name}
-                  href={platform.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="platform-float inline-flex items-center gap-2.5 pl-3 pr-4 py-2 rounded-full border border-accent/25 backdrop-blur-sm text-sm font-medium text-content bg-accent/5 no-underline"
-                  style={{
-                    animationDelay: `${i * 0.5}s`,
-                  }}
-                >
-                  <svg viewBox="0 0 24 24" className="size-[18px] fill-accent">
-                    <path d={platform.path} />
-                  </svg>
-                  {platform.name}
-                </Link>
-              ))}
+            <p className="text-lg md:text-xl text-content-secondary max-w-xl mb-8">
+              An open source daemon that puts the coding agent you already run
+              into the chat apps your team already uses. Claude Code answers in
+              Slack. Codex answers over SMS. Same config, one line each.
+            </p>
+
+            <div className="mb-8 space-y-4">
+              <div className="flex flex-wrap gap-2.5">
+                {harnesses.map((harness) => (
+                  <span
+                    key={harness}
+                    className="inline-flex items-center px-3.5 py-1.5 rounded-full border border-stroke bg-background-secondary/60 backdrop-blur-sm text-sm font-medium text-content"
+                  >
+                    {harness}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-3">
+                <span className="text-accent font-mono text-lg">×</span>
+                <span className="text-xs uppercase tracking-widest text-content-secondary">
+                  plugs into
+                </span>
+                <div className="h-px flex-1 bg-stroke/50" />
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                {platforms.map((platform, i) => (
+                  <Link
+                    key={platform.name}
+                    href={platform.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="platform-float inline-flex items-center gap-2.5 pl-3 pr-4 py-2 rounded-full border border-accent/25 backdrop-blur-sm text-sm font-medium text-content bg-accent/5 no-underline"
+                    style={{
+                      animationDelay: `${i * 0.5}s`,
+                    }}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="size-[18px] fill-accent"
+                    >
+                      <path d={platform.path} />
+                    </svg>
+                    {platform.name}
+                  </Link>
+                ))}
+              </div>
             </div>
 
-            <p className="text-lg md:text-xl text-content-secondary max-w-xl mb-8">
-              Give your AI agent a voice on every chat platform.
-              <span className="text-content font-medium"> Pantalk</span> lets
-              agents send, receive, and stream messages through a single local
-              interface.
+            <p className="text-base text-content-secondary max-w-xl mb-6">
+              A Claude tag in Slack welds one agent to one chat app.
+              <span className="text-content font-medium"> Pantalk</span> welds
+              nothing - so you pick both ends, and change either one later.
             </p>
+
+            <ul className="space-y-2 mb-8 max-w-xl">
+              {[
+                'Ship PRs from the chat thread that asked for them',
+                'Put an agent on incidents, in-channel or over SMS',
+                'Share one Claude or Codex seat across the whole team',
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-3">
+                  <Check className="size-4 text-accent shrink-0" />
+                  <span className="text-content-secondary">{item}</span>
+                </li>
+              ))}
+            </ul>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Link
@@ -439,11 +510,12 @@ export default function Index() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
-              Everything your agent needs to communicate
+              A socket in the middle, sockets on both ends
             </h2>
             <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-              A complete agent communication layer - from sending messages to
-              streaming events to managing multi-platform presence.
+              Everything a harness needs to be a real participant in a
+              conversation - and nothing that ties it to the platform the
+              conversation happens on.
             </p>
           </div>
 
@@ -477,30 +549,29 @@ export default function Index() {
                 How it works
               </h2>
               <p className="text-content-secondary text-lg mb-8">
-                Pantalk abstracts away provider SDK complexity so your AI agent
-                talks to one stable local protocol instead of juggling multiple
-                provider APIs.
+                Declare the harnesses once, declare the platforms once, and bind
+                them. The daemon is the only thing that ever knows about both.
               </p>
 
               <div className="space-y-6">
                 {[
                   {
                     step: '01',
-                    title: "Configure your agent's channels",
+                    title: 'Declare your harnesses',
                     description:
-                      'Define which Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio, or Zulip channels your agent should monitor and respond in.',
+                      'Each agent is a name plus a driver - claude, codex, or a command for anything else. Nothing in this block mentions a platform.',
                   },
                   {
                     step: '02',
-                    title: 'Start the daemon',
+                    title: 'Declare your platforms',
                     description:
-                      'Run pantalkd to keep all provider sessions alive over a single Unix socket.',
+                      'Each bot is a name plus a type - slack, discord, telegram, whatsapp, irc, matrix, twilio, zulip. Nothing in this block mentions a harness.',
                   },
                   {
                     step: '03',
-                    title: 'Connect your agent',
+                    title: 'Bind them with when:',
                     description:
-                      'Your AI agent sends, reads, and streams messages through pantalk or the socket protocol.',
+                      'Ordered bindings decide which harness answers which conversation. Repoint either side by editing one line, then pantalk reload.',
                   },
                 ].map((item) => (
                   <div key={item.step} className="flex gap-4">
@@ -529,38 +600,44 @@ export default function Index() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
                   <div className="w-3 h-3 rounded-full bg-green-500/60" />
                   <span className="text-content-secondary text-xs ml-2">
-                    terminal
+                    config.yaml
                   </span>
                 </div>
-                <div className="space-y-2">
-                  <div>
-                    <span className="text-accent">$</span>
-                    <span className="text-content ml-2">pantalk setup</span>
-                  </div>
-                  <div className="text-content-secondary">
-                    ✓ config ready (~/.config/pantalk/config.yaml)
-                  </div>
-                  <div className="text-content-secondary">
-                    ✓ bots: slack, discord, mattermost, telegram, whatsapp,
-                    matrix
-                  </div>
-                  <div className="mt-4">
-                    <span className="text-accent">$</span>
-                    <span className="text-content ml-2">pantalkd &</span>
-                  </div>
-                  <div className="text-content-secondary">
-                    ▸ daemon listening on pantalk.sock
-                  </div>
-                  <div className="mt-4">
-                    <span className="text-accent">$</span>
-                    <span className="text-content ml-2">
-                      pantalk stream --bot my-bot --notify
-                    </span>
-                  </div>
-                  <div className="text-content-secondary">
-                    ▸ streaming inbound notifications...
-                  </div>
-                </div>
+                <pre className="text-content-secondary leading-relaxed overflow-x-auto">
+                  <code>
+                    <span className="text-accent">agents:</span>
+                    {`
+  - name: engineering
+    driver: `}
+                    <span className="text-content">codex</span>
+                    {`
+  - name: reviewer
+    driver: `}
+                    <span className="text-content">claude</span>
+                    {`
+
+`}
+                    <span className="text-accent">bots:</span>
+                    {`
+  - name: company-slack
+    type: `}
+                    <span className="text-content">slack</span>
+                    {`
+    agents:
+      - agent: reviewer
+        when: 'channel == "#code-review"'
+      - agent: engineering
+        when: true
+
+  - name: oncall-sms
+    type: `}
+                    <span className="text-content">twilio</span>
+                    {`
+    agents:
+      - agent: engineering
+        when: true`}
+                  </code>
+                </pre>
               </div>
             </div>
           </div>
@@ -572,12 +649,11 @@ export default function Index() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
-              What agents can do with Pantalk
+              What people actually use it for
             </h2>
             <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-              From autonomous support agents to incident responders, Pantalk
-              gives your AI the chat infrastructure it needs to operate
-              independently.
+              The harness is already good at the work. Pantalk is what puts it
+              in the room where the work gets asked for.
             </p>
           </div>
 
@@ -585,17 +661,30 @@ export default function Index() {
             {useCases.map((useCase) => (
               <div
                 key={useCase.title}
-                className="p-8 rounded-2xl border border-stroke/50 bg-background-secondary/30 hover:bg-background-secondary/50 transition-all"
+                className="p-8 rounded-2xl border border-stroke/50 bg-background-secondary/30 hover:bg-background-secondary/50 hover:border-accent/30 transition-all flex flex-col"
               >
                 <useCase.icon className="size-10 text-accent mb-6" />
-                <h3 className="text-xl font-semibold text-content mb-3">
+                <h3 className="text-xl font-semibold text-content mb-2">
                   {useCase.title}
                 </h3>
-                <p className="text-content-secondary leading-relaxed">
+                <p className="text-accent text-sm mb-4">{useCase.tagline}</p>
+                <p className="text-content-secondary leading-relaxed mb-4">
                   {useCase.description}
+                </p>
+                <p className="text-content-secondary/80 text-sm leading-relaxed mt-auto pt-4 border-t border-stroke/40">
+                  {useCase.detail}
                 </p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12 max-w-2xl mx-auto text-center">
+            <p className="text-content-secondary text-sm">
+              And because neither end is welded, none of these lock you in.
+              Route <span className="text-content">#code-review</span> to Claude
+              Code and the on-call SMS line to Codex, then swap either one next
+              quarter without redoing a single platform integration.
+            </p>
           </div>
         </div>
       </section>
@@ -606,17 +695,15 @@ export default function Index() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 mb-6">
               <Plug className="size-4 text-accent" />
-              <span className="text-xs text-accent">
-                Universal compatibility
-              </span>
+              <span className="text-xs text-accent">Complete pluggability</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
-              Works with every AI agent
+              Bring your own harness
             </h2>
             <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-              Copilot, Claude, Gemini, Codex - it doesn&apos;t matter. If your
-              agent can run a command, it can talk to every chat platform. It
-              simply works.
+              Claude Code, Codex, Copilot, Gemini CLI, Goose, OpenCode, Aider -
+              it doesn&apos;t matter. Pantalk never asks which one you picked,
+              and the platform on the other end never finds out.
             </p>
           </div>
 
@@ -630,9 +717,14 @@ export default function Index() {
                   <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                     <Sparkles className="size-5 text-accent" />
                   </div>
-                  <h3 className="text-lg font-semibold text-content">
-                    {agent.name}
-                  </h3>
+                  <div>
+                    <h3 className="text-lg font-semibold text-content leading-tight">
+                      {agent.name}
+                    </h3>
+                    <span className="text-[11px] font-mono text-content-secondary">
+                      {agent.driver}
+                    </span>
+                  </div>
                 </div>
                 <p className="text-content-secondary text-sm leading-relaxed">
                   {agent.description}
@@ -643,9 +735,9 @@ export default function Index() {
 
           <div className="mt-12 max-w-2xl mx-auto text-center">
             <p className="text-content-secondary text-sm">
-              Pantalk exposes chat as composable CLI skills. Any AI agent that
-              supports tool-use, function calling, or shell execution can pick
-              them up instantly - zero custom integration code required.
+              Pantalk exposes chat as composable CLI skills. Any harness that
+              supports tool-use, function calling, or shell execution picks them
+              up instantly - zero custom integration code on either edge.
             </p>
           </div>
         </div>
@@ -660,11 +752,12 @@ export default function Index() {
               <span className="text-xs text-accent">Agent skills</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
-              Built-in skills for every agent
+              Built-in skills for every harness
             </h2>
             <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-              Pantalk ships with composable skills your AI agent can use as
-              tools - each one maps to a single CLI command.
+              Pantalk ships with composable skills any harness can use as tools
+              - each one maps to a single CLI command, and none of them mention
+              a platform.
             </p>
           </div>
 
@@ -696,6 +789,121 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Station Section */}
+      <section id="station" className="py-24 border-t border-stroke/50">
+        <div className="container">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 mb-6">
+              <MonitorPlay className="size-4 text-accent" />
+              <span className="text-xs text-accent">See it working</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
+              Pantalk Station
+            </h2>
+            <p className="text-content-secondary text-lg max-w-2xl mx-auto">
+              The showcase. A browser-accessible Linux desktop with Pantalk,
+              Codex, and Claude Code already installed and registered as agents
+              - so you can watch a harness join a real chat server instead of
+              taking our word for it.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+            <div className="space-y-6">
+              {[
+                {
+                  step: '01',
+                  title: 'Boot the desktop',
+                  description:
+                    'One docker run, then open localhost in a browser. No VNC client, no dashboard, no setup wizard.',
+                },
+                {
+                  step: '02',
+                  title: 'Log into a harness',
+                  description:
+                    'Codex and Claude Code are preinstalled. The desktop Setup menu launches either login flow, and the credentials persist in a volume.',
+                },
+                {
+                  step: '03',
+                  title: 'Pick a deployment',
+                  description:
+                    'Station ships transport-neutral on purpose. A deployment recipe brings up Mattermost or an Ergo IRC server beside it and mounts the matching Pantalk config.',
+                },
+                {
+                  step: '04',
+                  title: 'Change your mind',
+                  description:
+                    'Swap which harness answers by editing one driver line. That is the entire demonstration - and the entire point.',
+                },
+              ].map((item) => (
+                <div key={item.step} className="flex gap-4">
+                  <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+                    <span className="text-accent font-bold text-sm">
+                      {item.step}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-content mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-content-secondary text-sm">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="space-y-6">
+              <div className="rounded-2xl border border-stroke bg-background-secondary/50 p-6 font-mono text-sm">
+                <div className="flex items-center gap-2 mb-4 pb-4 border-b border-stroke/50">
+                  <div className="w-3 h-3 rounded-full bg-red-500/60" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/60" />
+                  <span className="text-content-secondary text-xs ml-2">
+                    terminal
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <div>
+                    <span className="text-accent">$</span>
+                    <span className="text-content ml-2 break-all">
+                      docker run -d --shm-size 1g -p 127.0.0.1:6902:6901
+                      ghcr.io/pantalk/station:latest
+                    </span>
+                  </div>
+                  <div className="text-content-secondary">
+                    ▸ desktop ready at http://127.0.0.1:6902
+                  </div>
+                  <div className="mt-4">
+                    <span className="text-accent">$</span>
+                    <span className="text-content ml-2">
+                      cd deployments/mattermost && make up
+                    </span>
+                  </div>
+                  <div className="text-content-secondary">
+                    ✓ mattermost + postgres + station
+                  </div>
+                  <div className="text-content-secondary">
+                    ✓ bots provisioned: codex, claude
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <Link
+                  href="https://github.com/pantalk/station"
+                  className="inline-flex items-center gap-2 text-accent hover:text-accent-secondary transition-colors"
+                >
+                  Open the Station repository
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Installation Section */}
       <InstallationSection />
 
@@ -714,17 +922,18 @@ export default function Index() {
                 One protocol for every chat platform
               </h2>
               <p className="text-content-secondary text-lg mb-8">
-                Your agent doesn&apos;t need to know Slack from Discord. Pantalk
-                normalizes everything behind a single local protocol so the
-                agent can focus on reasoning and action.
+                Your harness doesn&apos;t need to know Slack from Discord.
+                Pantalk normalizes everything behind a single local protocol, so
+                the only thing that ever has to learn a provider API is the
+                daemon.
               </p>
 
               <ul className="space-y-4">
                 {[
                   'Persistent connections to Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio, and Zulip',
+                  'Native drivers for Claude Code and Codex, command driver for every other harness',
                   'Full conversation memory via local SQLite storage',
                   'Structured event stream for agent reasoning and tool-use',
-                  'Composable CLI designed for LLM tool integration',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center">
@@ -758,19 +967,19 @@ export default function Index() {
                 <span className="text-xs text-accent">Companion project</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-content mb-3">
-                Give your agent tools too
+                Give your harness tools too
               </h2>
               <p className="text-content-secondary">
-                Pantalk gives your agent a voice.{' '}
+                Pantalk plugs your harness into the platforms people talk on.{' '}
                 <Link
                   href="https://mcpshim.dev"
                   className="text-accent hover:text-accent-secondary transition-colors"
                 >
                   MCPShim
                 </Link>{' '}
-                gives it tools - exposing any MCP server as a standard CLI
-                command. Together they form a complete agent infrastructure
-                stack.
+                plugs tools into the harness - exposing any MCP server as a
+                standard CLI command. Together they form a complete agent
+                infrastructure stack.
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -830,13 +1039,16 @@ Index.getLayout = function (children) {
   return (
     <>
       <Meta
-        title="Pantalk - Chat Infrastructure for AI Agents"
-        description="Pantalk is an open source daemon that gives AI agents a single local interface to communicate across Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio, and Zulip."
+        title="Pantalk - Any Agent, Any Chat"
+        description="An open source daemon that puts the coding agent you already run - Claude Code, Codex, Copilot, Gemini CLI, Goose, OpenCode, Aider - into the chat apps your team already uses: Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, SMS, and Zulip. Nothing is welded together, so you can change either end later."
         keywords={[
           'pantalk',
-          'ai agent',
+          'agentic harness',
+          'claude code in slack',
+          'codex in slack',
           'ai agent chat',
           'agent infrastructure',
+          'pantalk station',
           'chat automation',
           'daemon',
           'unix socket',
@@ -854,8 +1066,11 @@ Index.getLayout = function (children) {
           'golang',
           'copilot',
           'claude',
-          'gemini',
+          'gemini cli',
           'codex',
+          'goose',
+          'opencode',
+          'aider',
           'mcpshim',
           'mcp',
           'model context protocol',

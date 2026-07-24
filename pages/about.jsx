@@ -9,6 +9,7 @@ import {
   Cable,
   Heart,
   MessageSquareText,
+  Plug,
   Radio,
   Sparkles,
   Terminal,
@@ -37,8 +38,9 @@ export default function About() {
             </h1>
 
             <p className="text-lg md:text-xl text-content-secondary max-w-2xl mx-auto">
-              I exist so AI agents can talk to humans on the platforms they
-              already use - without the mess.
+              I put the coding agent you already run into the chat apps your
+              team already uses - and I don&apos;t weld the two together, so you
+              can change either one later.
             </p>
           </div>
         </div>
@@ -57,40 +59,51 @@ export default function About() {
               <span className="text-content font-medium">
                 Let me tell you why I was built.
               </span>{' '}
-              AI agents are getting smarter every day. They can reason, plan,
-              search, code, and make decisions. But when it comes to actually{' '}
-              <em>talking</em> to people? They hit a wall.
+              Agentic harnesses are getting better every month. Claude Code,
+              Codex, Copilot, Gemini CLI, Goose, OpenCode, Aider - they reason,
+              plan, search, code, and make decisions. But when it comes to
+              actually <em>talking</em> to people? They hit a wall.
             </p>
 
             <p className="text-content-secondary">
-              Slack has one API. Discord has another. Mattermost, Telegram,
-              WhatsApp, IRC, Matrix, Twilio, Zulip, iMessage - each one speaks a
-              different language with different auth flows, different event
-              models, different threading semantics. An agent that wants to
-              monitor a Slack channel, reply in a Discord thread, and post an
-              update to Telegram has to juggle three SDKs, three connection
-              lifecycles, and three completely different data shapes.
+              Plenty of people have noticed. A Claude tag will put Claude in
+              Slack. Block&apos;s Buzz will put Block&apos;s agents in
+              Block&apos;s workspace. Both are good. Both also make the decision
+              for you: one harness, welded to one platform. If you change
+              harnesses - and you will - you start over.
+            </p>
+
+            <p className="text-content-secondary">
+              And the platform side is no easier. Slack has one API. Discord has
+              another. Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio,
+              Zulip, iMessage - each one speaks a different language with
+              different auth flows, different event models, different threading
+              semantics. An agent that wants to monitor a Slack channel, reply
+              in a Discord thread, and post an update to Telegram has to juggle
+              three SDKs, three connection lifecycles, and three completely
+              different data shapes.
             </p>
 
             <p className="text-content-secondary">
               <span className="text-content font-medium">
                 That&apos;s where I come in.
               </span>{' '}
-              I sit between your AI agent and all those platforms. I keep the
-              connections alive. I normalize the events. I store the history.
-              And I give your agent one simple, clean interface to do
-              everything: send messages, read conversations, stream events,
-              check notifications.
+              I sit in the middle and I refuse to pair anything. Harnesses
+              attach to me on one side through drivers. Platforms attach on the
+              other through connectors. I keep the connections alive, normalize
+              the events, and store the history - and neither side ever learns
+              anything about the other.
             </p>
 
             <blockquote className="border-l-2 border-accent pl-6 py-2 text-content italic">
-              &ldquo;One daemon. One protocol. Every platform.&rdquo;
+              &ldquo;Any agent, any chat.&rdquo;
             </blockquote>
 
             <p className="text-content-secondary">
-              Your agent doesn&apos;t need to know it&apos;s talking to Slack or
-              Discord. It just talks to me, and I handle the rest. Simple CLI
-              commands, Unix socket protocol, JSON in and out. The way tools
+              Your harness doesn&apos;t need to know it&apos;s talking to Slack
+              or Discord. Slack doesn&apos;t need to know it&apos;s talking to
+              Claude Code. Both just talk to me, and I handle the rest. Simple
+              CLI commands, Unix socket protocol, JSON in and out. The way tools
               should work.
             </p>
           </div>
@@ -108,24 +121,29 @@ export default function About() {
             <div className="space-y-12">
               {[
                 {
+                  icon: Plug,
+                  title: 'Nothing gets welded together',
+                  body: "A harness is a driver line. A platform is a type line. Neither is allowed to know about the other, so replacing one never costs you the other. That is not a feature I added later - it's the shape of the whole thing.",
+                },
+                {
                   icon: Cable,
                   title: 'Connections are my job, not yours',
-                  body: 'I keep persistent sessions to every chat platform so your agent never has to worry about reconnecting, refreshing tokens, or handling websocket drops. That complexity lives inside me.',
+                  body: 'I keep persistent sessions to every chat platform so your harness never has to worry about reconnecting, refreshing tokens, or handling websocket drops. That complexity lives inside me.',
                 },
                 {
                   icon: Terminal,
                   title: "If it can't be piped, it's broken",
-                  body: "Every action I expose is a CLI command that outputs clean, parseable data. Your agent can call me as a tool, pipe my output through jq, or chain me into any shell workflow. I'm designed to be composed.",
+                  body: "Every action I expose is a CLI command that outputs clean, parseable data. Your harness can call me as a tool, pipe my output through jq, or chain me into any shell workflow. I'm designed to be composed.",
                 },
                 {
                   icon: MessageSquareText,
                   title: "Memory shouldn't be optional",
-                  body: 'I persist every message and event to a local SQLite database. Your agent can read conversation history, poll for new notifications, and pick up exactly where it left off - even after a restart.',
+                  body: 'I persist every message and event to a local SQLite database, with sessions isolated per bot, channel, and thread. Your harness can read history, poll for notifications, and pick up exactly where it left off - even after a restart on either side.',
                 },
                 {
                   icon: Radio,
                   title: 'Real-time when you need it',
-                  body: "Sometimes polling isn't enough. I offer real-time event streaming so your agent can react instantly to mentions, DMs, and messages as they arrive across any platform.",
+                  body: "Sometimes polling isn't enough. I offer real-time event streaming so your harness can react instantly to mentions, DMs, and messages as they arrive across any platform.",
                 },
               ].map((item) => (
                 <div key={item.title} className="flex gap-5">
@@ -202,18 +220,19 @@ export default function About() {
 
             <p className="text-content-secondary">
               I was built for{' '}
-              <span className="text-content font-medium">AI agents</span> and
-              the people who build them. If you&apos;re creating an agent that
-              needs to:
+              <span className="text-content font-medium">
+                agentic harnesses
+              </span>{' '}
+              and the people who run them. If you want your harness to:
             </p>
 
             <ul className="space-y-3">
               {[
-                'Monitor Slack channels for support requests and triage them',
-                'Post incident updates across Discord and Mattermost simultaneously',
-                'Stream real-time messages for sentiment analysis or keyword detection',
-                'Maintain multi-turn conversations across platforms with full context',
-                'Run as a background service on a server, headless and autonomous',
+                'Open PRs and fix failing tests in the thread that asked for it',
+                'Triage incidents in-channel, or over SMS to a phone with no app on it',
+                'Serve your whole team from one Claude or Codex seat, not one each',
+                'Be reachable by people who will never install anything',
+                'Survive you replacing it with a better harness six months from now',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <Zap className="size-4 text-accent mt-1.5 shrink-0" />
@@ -225,6 +244,20 @@ export default function About() {
             <p className="text-content-secondary">
               &hellip;then I&apos;m your infrastructure. You focus on the
               reasoning. I&apos;ll handle the talking.
+            </p>
+
+            <p className="text-content-secondary">
+              If you&apos;d rather see it than read about it, my siblings built{' '}
+              <Link
+                href="https://github.com/pantalk/station"
+                className="text-accent hover:text-accent-secondary transition-colors"
+              >
+                Pantalk Station
+              </Link>{' '}
+              - a browser-accessible desktop with me, Codex, and Claude Code
+              already installed, and one-command deployments that stand up a
+              real Mattermost or IRC server beside it. Boot it, log into a
+              harness, and watch the whole idea work in a few minutes.
             </p>
           </div>
         </div>
@@ -285,13 +318,15 @@ About.getLayout = function (children) {
   return (
     <>
       <Meta
-        title="About Pantalk - Chat Infrastructure for AI Agents"
-        description="Pantalk is an open source daemon that gives AI agents a single local interface to communicate across Slack, Discord, Mattermost, Telegram, WhatsApp, IRC, Matrix, Twilio, and Zulip. Here's why it exists."
+        title="About Pantalk - Any Agent, Any Chat"
+        description="Pantalk is an open source daemon that puts the coding agent you already run - Claude Code, Codex, Copilot, Gemini CLI, Goose, OpenCode, Aider - into the chat apps your team already uses, without welding the two together. Here's why it exists."
         keywords={[
           'pantalk',
           'about',
+          'agentic harness',
           'ai agent',
           'chat infrastructure',
+          'pantalk station',
           'open source',
           'daemon',
           'unix socket',
