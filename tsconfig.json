@@ -9,11 +9,11 @@
         "name": "next"
       }
     ],
-    "composite": true,
     "target": "es2019",
     "lib": ["dom", "dom.iterable", "esnext"],
     "types": ["node"],
     "allowJs": true,
+    "checkJs": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -28,6 +28,13 @@
     "strictNullChecks": true,
     "noImplicitOverride": true
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "exclude": ["node_modules", "public"]
 }

@@ -1,7 +1,9 @@
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pantalk.dev'
 
+/** @type {string[]} */
 const additionalPaths = []
 
+/** @type {string[]} */
 const additionalSitemaps = []
 
 module.exports = {

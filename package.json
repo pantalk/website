@@ -4,25 +4,22 @@
   "private": true,
   "scripts": {
     "setup": "true",
-    "build": "run-s build:*",
+    "build": "npm run build:01-next && npm run build:02-sitemap",
     "build:01-next": "next build",
     "build:02-sitemap": "next-sitemap",
     "check": "tsc --noEmit --incremental",
-    "clean": "run-s clean:*",
-    "clean:00-next": "rimraf .next",
-    "clean:01-tsbuildinfo": "rimraf *.tsbuildinfo",
-    "clean:02-dist": "rimraf dist",
-    "clean:03-node_modules": "rimraf node_modules",
+    "clean": "node -e \"const fs=require('node:fs'); for (const path of ['.next','dist','node_modules','tsconfig.tsbuildinfo']) fs.rmSync(path,{recursive:true,force:true})\"",
     "dev": "next dev",
-    "lint": "next lint",
+    "lint": "eslint .",
     "start": "next start",
-    "test:integration": "true"
+    "test": "npm run check && npm run lint && npm run build",
+    "test:integration": "npm test"
   },
   "dependencies": {
     "clsx": "^2.1.0",
     "framer-motion": "^12.34.1",
     "lucide-react": "^0.474.0",
-    "next": "^16.1.6",
+    "next": "16.2.12",
     "next-sitemap": "^4.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -33,12 +30,15 @@
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.17",
     "autoprefixer": "^10.4.17",
-    "eslint": "^8",
-    "eslint-config-next": "^14.2.24",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.33",
-    "rimraf": "^5.0.5",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.12",
+    "postcss": "^8.5.23",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.9"
+  },
+  "overrides": {
+    "picomatch@<=2.3.1": "2.3.2",
+    "picomatch@>=4.0.0 <=4.0.3": "4.0.5",
+    "postcss": "^8.5.23"
   }
 }
