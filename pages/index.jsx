@@ -280,6 +280,7 @@ function InstallationSection() {
           {/* Tabs */}
           <div className="flex gap-2 mb-8 justify-center">
             <button
+              type="button"
               onClick={() => setTab('agent')}
               className={`h-10 px-5 text-sm font-medium rounded-xl flex items-center gap-2 transition-all ${
                 tab === 'agent'
@@ -291,6 +292,7 @@ function InstallationSection() {
               For AI Agents
             </button>
             <button
+              type="button"
               onClick={() => setTab('human')}
               className={`h-10 px-5 text-sm font-medium rounded-xl flex items-center gap-2 transition-all ${
                 tab === 'human'
@@ -804,8 +806,8 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Station Section */}
-      <section id="station" className="py-24 border-t border-stroke/50">
+      {/* Ghost Section */}
+      <section id="ghost" className="py-24 border-t border-stroke/50">
         <div className="container">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 mb-6">
@@ -813,7 +815,7 @@ export default function Index() {
               <span className="text-xs text-accent">See it working</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
-              Pantalk Station
+              Pantalk Ghost
             </h2>
             <p className="text-content-secondary text-lg max-w-2xl mx-auto">
               The showcase. A full Linux desktop in your browser with Pantalk,
@@ -825,7 +827,7 @@ export default function Index() {
 
           {/* Screenshot */}
           <Link
-            href="https://github.com/pantalk/station"
+            href="https://github.com/pantalk/ghost"
             className="group block max-w-5xl mx-auto mb-16 no-underline"
           >
             <div className="relative">
@@ -841,10 +843,10 @@ export default function Index() {
                   </div>
                 </div>
                 <img
-                  src="/station.png"
-                  alt="Pantalk Station running in a browser: an Openbox Linux desktop with a terminal, the Pantalk daemon, and Codex and Claude Code installed as agents"
-                  width={3456}
-                  height={2234}
+                  src="/ghost.png"
+                  alt="Pantalk Ghost running in a browser: an Openbox Linux desktop with a terminal, the Pantalk daemon, and Codex and Claude Code installed as agents"
+                  width={2560}
+                  height={1440}
                   loading="lazy"
                   className="w-full h-auto block"
                 />
@@ -853,7 +855,7 @@ export default function Index() {
             <p className="text-center text-sm text-content-secondary mt-4 group-hover:text-content transition-colors">
               This is the whole thing - no VNC client, no dashboard, no setup
               wizard.{' '}
-              <span className="text-accent">Explore Station on GitHub →</span>
+              <span className="text-accent">Explore Ghost on GitHub →</span>
             </p>
           </Link>
 
@@ -876,7 +878,7 @@ export default function Index() {
                   step: '03',
                   title: 'Pick a deployment',
                   description:
-                    'Station ships transport-neutral on purpose. A deployment recipe brings up Mattermost or an Ergo IRC server beside it and mounts the matching Pantalk config.',
+                    'Ghost ships transport-neutral on purpose. A deployment recipe brings up Mattermost or an Ergo IRC server beside it and mounts the matching Pantalk config.',
                 },
                 {
                   step: '04',
@@ -918,7 +920,7 @@ export default function Index() {
                     <span className="text-accent">$</span>
                     <span className="text-content ml-2 break-all">
                       docker run -d --shm-size 1g -p 127.0.0.1:6902:6901
-                      ghcr.io/pantalk/station:latest
+                      ghcr.io/pantalk/ghost:latest
                     </span>
                   </div>
                   <div className="text-content-secondary">
@@ -931,7 +933,7 @@ export default function Index() {
                     </span>
                   </div>
                   <div className="text-content-secondary">
-                    ✓ mattermost + postgres + station
+                    ✓ mattermost + postgres + ghost
                   </div>
                   <div className="text-content-secondary">
                     ✓ bots provisioned: codex, claude
@@ -941,10 +943,10 @@ export default function Index() {
 
               <div className="text-center">
                 <Link
-                  href="https://github.com/pantalk/station"
+                  href="https://github.com/pantalk/ghost"
                   className="inline-flex items-center gap-2 text-accent hover:text-accent-secondary transition-colors"
                 >
-                  Open the Station repository
+                  Open the Ghost repository
                   <ArrowRight className="size-4" />
                 </Link>
               </div>
@@ -1088,6 +1090,7 @@ export default function Index() {
   )
 }
 
+/** @param {import('react').ReactNode} children */
 Index.getLayout = function (children) {
   return (
     <>
@@ -1101,7 +1104,7 @@ Index.getLayout = function (children) {
           'codex in slack',
           'ai agent chat',
           'agent infrastructure',
-          'pantalk station',
+          'pantalk ghost',
           'chat automation',
           'daemon',
           'unix socket',

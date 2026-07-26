@@ -1,5 +1,4 @@
 /* Contact */
-Maintainer: ChatBotKit
-Website: https://cbk.ai
-Contact: support@chatbotkit.com
-Twitter: @ChatBotKit
+Maintainer: Pantalk contributors
+Website: https://pantalk.dev
+Repository: https://github.com/pantalk/pantalk

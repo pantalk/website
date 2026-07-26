@@ -7,8 +7,8 @@ import { url } from '@/lib/url'
  * Generates JSON-LD structured data for SEO.
  *
  * @param {object} options - The options object
- * @param {string} options.title - Page title
- * @param {string} options.description - Page description
+ * @param {string} [options.title] - Page title
+ * @param {string} [options.description] - Page description
  * @param {string} options.thisUrl - Current page URL
  * @param {string} options.image - Page image URL
  * @returns {object} JSON-LD structured data object
@@ -21,14 +21,14 @@ function generateStructuredData({ title, description, thisUrl, image }) {
     '@graph': [
       {
         '@type': 'Organization',
-        '@id': 'https://cbk.ai/#organization',
-        name: 'CBK AI (ChatBotKit)',
-        url: 'https://cbk.ai',
+        '@id': 'https://pantalk.dev/#organization',
+        name: 'Pantalk',
+        url: 'https://pantalk.dev',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://cbk.ai/logo.svg',
+          url: 'https://pantalk.dev/icon.svg',
         },
-        sameAs: ['https://github.com/pantalk'],
+        sameAs: ['https://github.com/pantalk/pantalk'],
       },
       {
         '@type': 'WebSite',
@@ -36,7 +36,7 @@ function generateStructuredData({ title, description, thisUrl, image }) {
         url: `https://${hostname}`,
         name: 'Pantalk',
         publisher: {
-          '@id': 'https://cbk.ai/#organization',
+          '@id': 'https://pantalk.dev/#organization',
         },
       },
       {
@@ -54,6 +54,17 @@ function generateStructuredData({ title, description, thisUrl, image }) {
   }
 }
 
+/**
+ * @param {object} props
+ * @param {string} [props.title]
+ * @param {string} [props.description]
+ * @param {string|string[]} [props.keywords]
+ * @param {string} [props.icon]
+ * @param {string} [props.image]
+ * @param {string} [props.appManifest]
+ * @param {string} [props.baseUrl]
+ * @param {string} [props.thisUrl]
+ */
 export default function Meta({
   title,
   description,

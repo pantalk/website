@@ -13,7 +13,7 @@ export default function Navbar() {
   const navLinks = [
     { href: '#features', label: 'Features' },
     { href: '#quick-start', label: 'Quick Start' },
-    { href: '#station', label: 'Station' },
+    { href: '#ghost', label: 'Ghost' },
     { href: '#installation', label: 'Install' },
     { href: '/about', label: 'About', accent: true },
     { href: 'https://github.com/pantalk/pantalk', label: 'GitHub' },

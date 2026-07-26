@@ -2,6 +2,9 @@ import React from 'react'
 
 import { cn } from '@/lib/utils'
 
+/**
+ * @param {{className?: string}} props
+ */
 export default function Logo({ className }) {
   return (
     <svg

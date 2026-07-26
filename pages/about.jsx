@@ -249,10 +249,10 @@ export default function About() {
             <p className="text-content-secondary">
               If you&apos;d rather see it than read about it, my siblings built{' '}
               <Link
-                href="https://github.com/pantalk/station"
+                href="https://github.com/pantalk/ghost"
                 className="text-accent hover:text-accent-secondary transition-colors"
               >
-                Pantalk Station
+                Pantalk Ghost
               </Link>{' '}
               - a browser-accessible desktop with me, Codex, and Claude Code
               already installed, and one-command deployments that stand up a
@@ -314,6 +314,7 @@ export default function About() {
   )
 }
 
+/** @param {import('react').ReactNode} children */
 About.getLayout = function (children) {
   return (
     <>
@@ -326,7 +327,7 @@ About.getLayout = function (children) {
           'agentic harness',
           'ai agent',
           'chat infrastructure',
-          'pantalk station',
+          'pantalk ghost',
           'open source',
           'daemon',
           'unix socket',
