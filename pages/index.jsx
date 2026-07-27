@@ -812,17 +812,55 @@ export default function Index() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 mb-6">
               <MonitorPlay className="size-4 text-accent" />
-              <span className="text-xs text-accent">See it working</span>
+              <span className="text-xs text-accent">
+                The harness-native agent computer
+              </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-content mb-4">
               Pantalk Ghost
             </h2>
-            <p className="text-content-secondary text-lg max-w-2xl mx-auto">
-              The showcase. A full Linux desktop in your browser with Pantalk,
-              Codex, and Claude Code already installed and registered as agents
-              - so you can watch an agent join a real chat server instead of
-              taking our word for it.
+            <p className="text-accent font-medium mb-4">
+              Keep the harness. Make it always-on.
             </p>
+            <p className="text-content-secondary text-lg max-w-3xl mx-auto">
+              Think OpenClaw or Hermes, except Ghost does not replace your
+              existing harness with a new agent runtime. It gives Codex, Claude
+              Code, Goose, or another Pantalk-compatible harness a persistent
+              Linux computer, durable state, and a route into the chat systems
+              your team already uses.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
+            {[
+              {
+                title: 'Ghost is the computer',
+                description:
+                  'A persistent workspace, browser desktop, terminal, saved credentials, and an environment that stays available.',
+              },
+              {
+                title: 'The harness is the agent',
+                description:
+                  'Reasoning, tools, skills, model access, and approval policy stay with the mature harness you already trust.',
+              },
+              {
+                title: 'Pantalk is the connection',
+                description:
+                  'Chat routing and conversation state stay independent, so changing a harness never means rebuilding the front door.',
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-xl border border-stroke/50 bg-background-secondary/30 p-5"
+              >
+                <h3 className="text-sm font-semibold text-content mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-content-secondary text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
 
           {/* Screenshot */}
@@ -844,7 +882,7 @@ export default function Index() {
                 </div>
                 <img
                   src="/ghost.png"
-                  alt="Pantalk Ghost running in a browser: an Openbox Linux desktop with a terminal, the Pantalk daemon, and Codex and Claude Code installed as agents"
+                  alt="Pantalk Ghost running in a browser: a persistent Linux agent computer for Codex, Claude Code, Goose, and other harnesses"
                   width={2560}
                   height={1440}
                   loading="lazy"
@@ -853,8 +891,8 @@ export default function Index() {
               </div>
             </div>
             <p className="text-center text-sm text-content-secondary mt-4 group-hover:text-content transition-colors">
-              This is the whole thing - no VNC client, no dashboard, no setup
-              wizard.{' '}
+              A real Linux computer with a durable workspace - not another
+              thin agent loop wrapped around a model API.{' '}
               <span className="text-accent">Explore Ghost on GitHub →</span>
             </p>
           </Link>
@@ -864,27 +902,27 @@ export default function Index() {
               {[
                 {
                   step: '01',
-                  title: 'Boot the desktop',
+                  title: 'Boot the computer',
                   description:
-                    'One docker run, then open localhost in a browser. No VNC client, no dashboard, no setup wizard.',
+                    'One docker run gives you an always-on Linux workspace you can inspect and operate from any browser.',
                 },
                 {
                   step: '02',
-                  title: 'Log into a harness',
+                  title: 'Use your existing harness',
                   description:
-                    'Codex and Claude Code are preinstalled. The desktop Setup menu launches either login flow, and the credentials persist in a volume.',
+                    'Codex, Claude Code, and Kimi Code are preinstalled. Use their normal login and configuration; Goose and other harnesses attach through Pantalk once installed.',
                 },
                 {
                   step: '03',
-                  title: 'Pick a deployment',
+                  title: 'Connect it to chat',
                   description:
-                    'Ghost ships transport-neutral on purpose. A deployment recipe brings up Mattermost or an Ergo IRC server beside it and mounts the matching Pantalk config.',
+                    'A deployment recipe connects the same computer and harness to Mattermost or IRC. Pantalk keeps the messaging transport out of the agent.',
                 },
                 {
                   step: '04',
-                  title: 'Change your mind',
+                  title: 'Swap without starting over',
                   description:
-                    'Swap which harness answers by editing one driver line. That is the entire demonstration - and the entire point.',
+                    'Change one driver line to move a conversation from Claude Code to Codex or another harness. The workspace and chat integration stay put.',
                 },
               ].map((item) => (
                 <div key={item.step} className="flex gap-4">

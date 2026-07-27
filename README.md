@@ -33,4 +33,7 @@ Pantalk helps you manage multi-service bot communication from a single local dae
 - Store local message history and notifications in SQLite
 - Support multi-bot routing with config-defined bot names
 
-Pantalk is written in Go and is open source at https://github.com/pantalk/pantalk. See https://github.com/pantalk/ghost for the prebuilt showcase environment.
+Pantalk is written in Go and is open source at https://github.com/pantalk/pantalk.
+See https://github.com/pantalk/ghost for the prebuilt, always-on agent computer:
+the persistence and reach of an OpenClaw- or Hermes-style setup, while Codex,
+Claude Code, Goose, or another existing harness remains the agent runtime.
