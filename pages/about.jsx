@@ -254,10 +254,14 @@ export default function About() {
               >
                 Pantalk Ghost
               </Link>{' '}
-              - a browser-accessible desktop with me, Codex, and Claude Code
-              already installed, and one-command deployments that stand up a
-              real Mattermost or IRC server beside it. Boot it, log into a
-              harness, and watch the whole idea work in a few minutes.
+              - an always-on agent computer in the same broad category as
+              OpenClaw and Hermes, but with one important difference: Ghost
+              does not invent another agent runtime. It supplies the persistent
+              Linux workspace, desktop, credentials, and chat reach, while
+              Codex, Claude Code, Goose, or another harness remains the agent.
+              The current image includes Codex, Claude Code, and Kimi Code, plus
+              one-command deployments that connect the same environment to a
+              real Mattermost or IRC server.
             </p>
           </div>
         </div>
