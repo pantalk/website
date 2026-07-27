@@ -14,16 +14,16 @@ import {
   Check,
   Database,
   Download,
-  History,
   GitPullRequest,
+  History,
   List,
   MessageSquareText,
   MonitorPlay,
   Plug,
-  Siren,
   Radio,
   Send,
   Settings,
+  Siren,
   Sparkles,
   Terminal,
   Users,
@@ -428,9 +428,7 @@ export default function Index() {
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
               <span className="text-content">Pantalk</span>
               <br />
-              <span className="text-accent text-glow">
-                any agent, any chat
-              </span>
+              <span className="text-accent text-glow">any agent, any chat</span>
             </h1>
 
             <p className="text-lg md:text-xl text-content-secondary max-w-xl mb-8">
@@ -826,8 +824,8 @@ export default function Index() {
               Think OpenClaw or Hermes, except Ghost does not replace your
               existing harness with a new agent runtime. It gives Codex, Claude
               Code, Goose, or another Pantalk-compatible harness a persistent
-              Linux computer, durable state, and a route into the chat systems
-              your team already uses.
+              computer, durable state, and a route into the chat systems your
+              team already uses.
             </p>
           </div>
 
@@ -891,8 +889,8 @@ export default function Index() {
               </div>
             </div>
             <p className="text-center text-sm text-content-secondary mt-4 group-hover:text-content transition-colors">
-              A real Linux computer with a durable workspace - not another
-              thin agent loop wrapped around a model API.{' '}
+              A real Linux computer with a durable workspace - not another thin
+              agent loop wrapped around a model API.{' '}
               <span className="text-accent">Explore Ghost on GitHub →</span>
             </p>
           </Link>
@@ -1056,7 +1054,9 @@ export default function Index() {
               <div className="max-w-lg">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-mcpshim/30 bg-mcpshim/5 mb-6">
                   <Plug className="size-4 text-mcpshim" />
-                  <span className="text-xs text-mcpshim">Companion project</span>
+                  <span className="text-xs text-mcpshim">
+                    Companion project
+                  </span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-content mb-3">
                   Give your agent tools too
