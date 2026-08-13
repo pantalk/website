@@ -875,7 +875,7 @@ export default function Index() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
                   <div className="w-3 h-3 rounded-full bg-green-500/60" />
                   <div className="ml-3 px-3 py-1 rounded-md bg-background/60 border border-stroke/50 text-[11px] font-mono text-content-secondary">
-                    127.0.0.1:6902
+                    127.0.0.1:6901
                   </div>
                 </div>
                 <img
@@ -955,12 +955,12 @@ export default function Index() {
                   <div>
                     <span className="text-accent">$</span>
                     <span className="text-content ml-2 break-all">
-                      docker run -d --shm-size 1g -p 127.0.0.1:6902:6901
-                      ghcr.io/pantalk/ghost:latest
+                      docker run -d --shm-size 1g -p 127.0.0.1:6901:6901
+                      -p 127.0.0.1:6902:6902 ghcr.io/pantalk/ghost:latest
                     </span>
                   </div>
                   <div className="text-content-secondary">
-                    ▸ desktop ready at http://127.0.0.1:6902
+                    ▸ desktop ready at http://127.0.0.1:6901
                   </div>
                   <div className="mt-4">
                     <span className="text-accent">$</span>
